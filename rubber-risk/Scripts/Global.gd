@@ -21,7 +21,7 @@ var sedan_health: int = 100
 var truck_health: int = 100
 
 func _ready() -> void:
-	ammo = 250
+	ammo += 250
 	load_game()
 
 func save_game():

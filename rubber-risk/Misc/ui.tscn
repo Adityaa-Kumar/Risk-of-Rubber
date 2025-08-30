@@ -44,21 +44,19 @@ offset_bottom = 75.0
 text = "Ammo:"
 label_settings = SubResource("LabelSettings_sgufr")
 
-[node name="Label_metal" type="Label" parent="lable_snap"]
-layout_mode = 0
-offset_top = 58.0
-offset_right = 96.0
-offset_bottom = 93.0
-text = "Metal:
-"
-label_settings = SubResource("LabelSettings_sgufr")
-
 [node name="Label_Parley_JEE" type="Label" parent="lable_snap"]
 layout_mode = 0
-offset_top = 75.0
+offset_top = 64.0
 offset_right = 176.0
-offset_bottom = 98.0
-text = "Parley-JEE:"
+offset_bottom = 87.0
+text = "Score:"
+label_settings = SubResource("LabelSettings_sgufr")
+
+[node name="Label_metal" type="Label" parent="lable_snap"]
+offset_top = 89.0
+offset_right = 96.0
+offset_bottom = 124.0
+text = "Metal:"
 label_settings = SubResource("LabelSettings_sgufr")
 
 [node name="lable_snap2" type="Control" parent="."]

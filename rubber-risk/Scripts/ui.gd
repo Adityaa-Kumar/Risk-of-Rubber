@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	$lable_snap/Label_health.text = "Health: "+str(Global.player_health)
 	$lable_snap/Label_ammo.text = "Ammo: "+str(Global.ammo)
 	$lable_snap/Label_metal.text = "Metal: "+str(Global.metal)
-	$lable_snap/Label_Parley_JEE.text = "Parley-JEE: "+str(Global.parley_jee)
+	$lable_snap/Label_Parley_JEE.text = "Score: "+str(Global.score)
 	
 	if Input.is_action_just_pressed("esc") and game_paused == false:
 			game_paused = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=64 format=4 uid="uid://behus0j6r6j12"]
 
-[ext_resource type="Script" uid="uid://bcq8q2kxp68i4" path="res://Scripts/menu.gd" id="1_r3u5h"]
+[ext_resource type="Script" uid="uid://cwrteyhiiyef5" path="res://Scripts/upgrades.gd" id="1_r3u5h"]
 [ext_resource type="Texture2D" uid="uid://ckobbk2pqsijx" path="res://Assets/textures/sand/sand_04_color_2k.png" id="2_h65fr"]
 [ext_resource type="Texture2D" uid="uid://57ybd6eveen7" path="res://Assets/textures/sand/sand_04_normal_gl_2k.png" id="3_iyut6"]
 [ext_resource type="Texture2D" uid="uid://bm6uee5cisqfk" path="res://Assets/textures/sand/sand_04_roughness_2k.png" id="4_hkd4w"]
@@ -788,7 +788,7 @@ _data = {
 &"rotate": SubResource("Animation_ru77h")
 }
 
-[node name="Menu" type="Node3D"]
+[node name="Upgrades" type="Node3D"]
 script = ExtResource("1_r3u5h")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -841,10 +841,10 @@ text = "->"
 
 [node name="Button5" type="Button" parent="Camera3D/CanvasLayer/buttons"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = -298.0
-offset_right = 260.0
-offset_bottom = -255.0
+offset_left = 46.0
+offset_top = -317.0
+offset_right = 266.0
+offset_bottom = -274.0
 theme_override_font_sizes/font_size = 32
 text = "BACK"
 
@@ -866,7 +866,8 @@ offset_bottom = -26.0
 scale = Vector2(1.00505, 0.992381)
 theme_override_fonts/font = ExtResource("5_poywp")
 theme_override_font_sizes/font_size = 70
-text = "HEALTH"
+text = "HEALTH
+UP"
 
 [node name="AmmoUp" type="Button" parent="Camera3D/CanvasLayer/Control"]
 layout_mode = 0
@@ -877,9 +878,9 @@ offset_bottom = -26.0
 scale = Vector2(1.00505, 0.992381)
 theme_override_fonts/font = ExtResource("5_poywp")
 theme_override_font_sizes/font_size = 70
-text = "AMMO"
+text = "REPAIR"
 
-[node name="Metal" type="Control" parent="Camera3D/CanvasLayer"]
+[node name="Resources" type="Control" parent="Camera3D/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -890,13 +891,49 @@ offset_right = -12.0
 offset_bottom = 63.0
 grow_horizontal = 0
 
-[node name="Label_metal" type="Label" parent="Camera3D/CanvasLayer/Metal"]
+[node name="Label_metal" type="Label" parent="Camera3D/CanvasLayer/Resources"]
 layout_mode = 0
-offset_left = -119.0
-offset_right = -23.0
+offset_left = -220.0
+offset_right = -124.0
 offset_bottom = 35.0
-text = "Metal:
-"
+text = "Metal: "
+label_settings = SubResource("LabelSettings_r3u5h")
+
+[node name="Label_Parley_JEE" type="Label" parent="Camera3D/CanvasLayer/Resources"]
+layout_mode = 0
+offset_left = -220.0
+offset_top = 62.0
+offset_right = -108.0
+offset_bottom = 97.0
+text = "Parley-JEE: "
+label_settings = SubResource("LabelSettings_r3u5h")
+
+[node name="Vehicle_Stats" type="Control" parent="Camera3D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label_health" type="Label" parent="Camera3D/CanvasLayer/Vehicle_Stats"]
+layout_mode = 0
+offset_left = -196.0
+offset_top = 23.0
+offset_right = -84.0
+offset_bottom = 58.0
+text = "Health: "
+label_settings = SubResource("LabelSettings_r3u5h")
+
+[node name="Label_max_health" type="Label" parent="Camera3D/CanvasLayer/Vehicle_Stats"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 23.0
+offset_right = 206.0
+offset_bottom = 58.0
+text = "Max Health: "
 label_settings = SubResource("LabelSettings_r3u5h")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]

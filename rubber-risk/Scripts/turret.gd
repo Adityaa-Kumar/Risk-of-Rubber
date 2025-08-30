@@ -5,8 +5,6 @@ extends Node3D
 @onready var ray_cast_3d: RayCast3D = $gun/RayCast3D
 @onready var sprite_3d: Sprite3D = $gun/Sprite3D
 @onready var gpu_particles_3d: GPUParticles3D = $gun/GPUParticles3D
-@export var player_node :Node3D
-
 var can_fire :bool = true
 
 func _ready() -> void:
@@ -21,7 +19,7 @@ func _input(event: InputEvent) -> void:
 	
 	if Input.is_action_pressed("fire"):
 		gpu_particles_3d.emitting = true
-		if can_fire and player_node.player_resource.Ammo > 0:
+		if can_fire and Global.ammo > 0:
 			can_fire = false
 			$Timer.start()
 			await $Timer.timeout
@@ -29,8 +27,8 @@ func _input(event: InputEvent) -> void:
 				var collider = ray_cast_3d.get_collider()
 				if is_instance_valid(collider):
 					if collider.is_in_group("Enemy") and collider.has_method("take_damage"):
-						collider.take_damage(player_node.damage)
-			player_node.player_resource.Ammo -= 1
+						collider.take_damage(25)
+			Global.ammo -= 1
 			can_fire = true
 	else:
 		gpu_particles_3d.emitting = false

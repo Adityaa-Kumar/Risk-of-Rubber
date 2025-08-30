@@ -1,9 +1,9 @@
 [gd_scene load_steps=90 format=4 uid="uid://bp1pklt7hrp0"]
 
 [ext_resource type="PackedScene" uid="uid://dnm7jg8m1xvtb" path="res://Assets/Shaders/crt_shader.tscn" id="1_bh22o"]
+[ext_resource type="Script" uid="uid://ynctmdnnkgyi" path="res://Scripts/test_map_2.gd" id="1_iu4ff"]
 [ext_resource type="PackedScene" uid="uid://b82ihd4gjd64p" path="res://Map/4x_4_16.tscn" id="2_ax1qm"]
 [ext_resource type="Texture2D" uid="uid://dntusc7mvswd0" path="res://Assets/buildings/building ruins/download.png" id="4_1471p"]
-[ext_resource type="PackedScene" uid="uid://ijuqn2p251lo" path="res://Vehicles/pickup_armoured.tscn" id="4_aayky"]
 [ext_resource type="Texture2D" uid="uid://dh4i82a4havbf" path="res://Assets/buildings/textures/concrete_baseColor.png" id="4_iu4ff"]
 [ext_resource type="PackedScene" uid="uid://vjac2fkt6ayf" path="res://Assets/buildings/scenes/1.tscn" id="6_ehho4"]
 [ext_resource type="PackedScene" uid="uid://dpwwsygeuqkur" path="res://Assets/buildings/scenes/2_2.tscn" id="7_s6jwi"]
@@ -1591,10 +1591,14 @@ fog_depth_end = 175.0
 volumetric_fog_density = 0.0125
 
 [node name="test_map_2" type="Node3D"]
+script = ExtResource("1_iu4ff")
 
 [node name="CRT_SHADER" parent="." instance=ExtResource("1_bh22o")]
 
 [node name="4x4_16" parent="." instance=ExtResource("2_ax1qm")]
+
+[node name="player_spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5178, 1.15187, 17.7896)
 
 [node name="safehouse" type="Node3D" parent="."]
 transform = Transform3D(1.99602, 0.312405, 0.0166692, -0.126069, 4.94624, 0.263919, -1.86264e-09, -0.661111, 1.98244, 77.7517, -50.3291, -126.194)
@@ -1978,9 +1982,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_cq2ig")
 shape = SubResource("ConcavePolygonShape3D_616mb")
 
 [node name="AnimationPlayer" type="Node3D" parent="safehouse/WallEntrance/Door"]
-
-[node name="Pickup_Armoured" parent="." instance=ExtResource("4_aayky")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5178, 1.15187, 17.7896)
 
 [node name="buildings" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)

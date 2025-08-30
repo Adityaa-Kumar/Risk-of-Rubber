@@ -19,9 +19,9 @@ extends VehicleBody3D
 @onready var player_scn = preload("res://Misc/player.tscn")
 #endregion
 
-#region player resources
-@export var player_resource :Reward
-#endregion
+##region player resources
+#@export var player_resource :Reward
+##endregion
 
 #region onready vars
 @onready var gpu_particles_3d_l: GPUParticles3D = $GPUParticles3D
@@ -29,7 +29,7 @@ extends VehicleBody3D
 
 #region vars
 var current_power :float = 0.0
-var health :float = 120
+var health :int = Global.player_health
 var is_cam_back :bool = true
 var speed :float
 var is_dead :bool = false
@@ -37,15 +37,15 @@ var is_dead :bool = false
 
 #regions funcs
 func _ready() -> void:
-	player_resource = Reward.new()
-	player_resource.Ammo = 250
+	pass
+	#player_resource = Reward.new()
+	#player_resource.Ammo = 250
 
 func _physics_process(delta: float) -> void:
 	if not is_dead:
 		engine_force = current_power
 		speed = linear_velocity.length() * 3.6
 		Global.player_speed = int(speed)
-		Global.player_health = health
 		Global.player_position = global_position
 		
 		if Input.is_action_pressed("throttle_up"):
@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 			mass = 40
 			brake = 0
 		
-		Global.player_resource_global = player_resource
+		#Global.player_resource_global = player_resource
 		
 		if Input.is_action_just_pressed("rotate_cam") and is_cam_back:
 			back_cam.priority = 0
@@ -91,9 +91,9 @@ func _physics_process(delta: float) -> void:
 		
 
 func handle_health(delta):
-	if health < 50:
+	if Global.player_health < 50:
 		$smoke.emitting = true
-	if health <= 0 and not is_dead:
+	if Global.player_health <= 0 and not is_dead:
 		$wheelFrontLeft.queue_free()
 		$wheelFrontRight.queue_free()
 		$wheelBackLeft.queue_free()
@@ -110,13 +110,13 @@ func handle_health(delta):
 		spawn_player()
 		
 
-func set_resource(resource :Reward) -> void:
-	player_resource.Ammo += resource.Ammo
-	player_resource.Metal += resource.Metal
-	player_resource.Parley_JEE += resource.Parley_JEE
+#func set_resource(resource :Reward) -> void:
+	#player_resource.Ammo += resource.Ammo
+	#player_resource.Metal += resource.Metal
+	#player_resource.Parley_JEE += resource.Parley_JEE
 
 func take_damage(damage :int):
-	health -= damage
+	Global.player_health -= damage
 
 func spawn_player() -> void:
 	$MainCamera3D/UI.queue_free()

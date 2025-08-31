@@ -781,7 +781,7 @@ _data = {
 &"rotate": SubResource("Animation_ru77h")
 }
 
-[node name="Menu" type="Node3D"]
+[node name="Menu2" type="Node3D"]
 script = ExtResource("1_wmv4b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -814,28 +814,39 @@ theme = SubResource("Theme_wmv4b")
 
 [node name="Button" type="Button" parent="Camera3D/CanvasLayer/buttons"]
 layout_mode = 0
-offset_left = 95.0
-offset_top = -205.0
-offset_right = 547.0
-offset_bottom = -53.0
+offset_left = 115.0
+offset_top = -151.0
+offset_right = 567.0
+offset_bottom = 0.999969
+scale = Vector2(0.684751, 0.673188)
 text = "PLAY"
 
 [node name="Button2" type="Button" parent="Camera3D/CanvasLayer/buttons"]
 layout_mode = 0
-offset_left = 95.0
+offset_left = 115.0
 offset_top = 40.0
-offset_right = 547.0
+offset_right = 567.0
 offset_bottom = 186.0
+scale = Vector2(0.684751, 0.673188)
 text = "EXIT"
 
 [node name="Button3" type="Button" parent="Camera3D/CanvasLayer/buttons"]
 layout_mode = 0
-offset_left = 856.0
+offset_left = 727.0
 offset_top = 278.0
-offset_right = 1076.0
+offset_right = 947.0
 offset_bottom = 321.0
 theme_override_font_sizes/font_size = 32
-text = "switch"
+text = "<-"
+
+[node name="Button4" type="Button" parent="Camera3D/CanvasLayer/buttons"]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 278.0
+offset_right = 1208.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 32
+text = "->"
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54281, 0, 0.574348)
@@ -942,3 +953,4 @@ speed_scale = 0.07
 [connection signal="pressed" from="Camera3D/CanvasLayer/buttons/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Camera3D/CanvasLayer/buttons/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Camera3D/CanvasLayer/buttons/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/buttons/Button4" to="." method="_on_button_4_pressed"]

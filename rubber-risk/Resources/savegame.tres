@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3 uid="uid://dbnegohbupw01"]
+
+[ext_resource type="Script" uid="uid://mylnes2c1ycc" path="res://Scripts/save.gd" id="1_0jntd"]
+
+[resource]
+script = ExtResource("1_0jntd")
+score = 0
+metal = 0
+parley_jee = 0
+pickup_health = 100
+sedan_health = 100
+truck_health = 100
+pickup_max_health = 100
+sedan_max_health = 100
+truck_max_health = 100

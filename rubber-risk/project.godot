@@ -19,15 +19,17 @@ config/icon="res://icon.svg"
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Global="*res://Scripts/Global.gd"
+SceneLoader="*res://addons/maaacks_scene_loader/base/scenes/autoloads/scene_loader.tscn"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/compass/plugin.cfg", "res://addons/maaacks_scene_loader/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [file_customization]
 
@@ -38,12 +40,15 @@ folder_colors={
 "res://Resources/": "blue",
 "res://Scripts/": "green",
 "res://Vehicles/": "teal",
-"res://addons/": "gray"
+"res://addons/": "purple"
 }
 
 [global_group]
 
 Player=""
+Building=""
+Ground=""
+Enemy=""
 
 [input]
 
@@ -107,8 +112,13 @@ esc={
 ]
 }
 
+[maaacks_scene_loader]
+
+disable_update_check=false
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

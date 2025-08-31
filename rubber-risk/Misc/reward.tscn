@@ -1,9 +1,17 @@
-[gd_scene load_steps=23 format=4 uid="uid://bdktmn68kknkd"]
+[gd_scene load_steps=25 format=4 uid="uid://bdktmn68kknkd"]
 
 [ext_resource type="Texture2D" uid="uid://cffboqvwbmyqr" path="res://Assets/Environment/Chest_Zombie_Atlas.png" id="1_6hqkl"]
 [ext_resource type="Script" uid="uid://cp6umfwpc4ves" path="res://Misc/reward.gd" id="1_lpl83"]
+[ext_resource type="Script" uid="uid://dba3j5oor5fk" path="res://Scripts/reward_res_script.gd" id="2_eq1s7"]
 [ext_resource type="Texture2D" uid="uid://pu3x0kegydop" path="res://Assets/ShockWave.png" id="3_5funs"]
 [ext_resource type="Texture2D" uid="uid://dtibyqf2eemef" path="res://Assets/textures/Hit.png" id="4_tgpyp"]
+
+[sub_resource type="Resource" id="Resource_pqlrq"]
+script = ExtResource("2_eq1s7")
+Ammo = 120
+Metal = 60
+Parley_JEE = 15
+metadata/_custom_type_script = "uid://cdfc36ny7dox"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gyb2"]
 resource_name = "Atlas"
@@ -226,6 +234,7 @@ animations = [{
 
 [node name="reward" type="Area3D"]
 script = ExtResource("1_lpl83")
+reward_resource = SubResource("Resource_pqlrq")
 
 [node name="Chest" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, -0.5, 0)

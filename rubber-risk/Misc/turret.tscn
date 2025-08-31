@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d0edndfe8rfgi"]
+[gd_scene load_steps=19 format=4 uid="uid://d0edndfe8rfgi"]
 
 [ext_resource type="Script" uid="uid://b72xyfx2qu5kq" path="res://Scripts/turret.gd" id="1_ka2sq"]
 [ext_resource type="Texture2D" uid="uid://bw4rgk4p517pq" path="res://Assets/turret/textures/TP_7_DW_Turret_Mat_baseColor.png" id="2_q0p54"]
@@ -144,6 +144,19 @@ linear_accel_max = 100.0
 [sub_resource type="BoxMesh" id="BoxMesh_xkwdg"]
 size = Vector3(0.1, 0.1, 2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ka2sq"]
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(128.498, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 24.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_q0p54"]
+material = SubResource("StandardMaterial3D_ka2sq")
+size = Vector3(5, 5, 5000)
+
 [node name="turret" type="Node3D"]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, -1.11022e-18, 0, 1.11022e-18, 0.005, 0, 0, 0)
 script = ExtResource("1_ka2sq")
@@ -171,6 +184,7 @@ target_position = Vector3(0, 0, 50000)
 collision_mask = 2
 
 [node name="Sprite3D" type="Sprite3D" parent="gun"]
+layers = 2
 cast_shadow = 0
 pixel_size = 0.15
 billboard = 1
@@ -193,6 +207,11 @@ interpolate = false
 fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_ymn5u")
 draw_pass_1 = SubResource("BoxMesh_xkwdg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 2555.85)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_q0p54")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4

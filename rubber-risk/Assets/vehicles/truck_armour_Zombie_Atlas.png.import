@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbkkwcd8kh7iw"
 path.s3tc="res://.godot/imported/truck_armour_Zombie_Atlas.png-d31c04f819c96dc169ca3db9fc3120ad.s3tc.ctex"
+path.etc2="res://.godot/imported/truck_armour_Zombie_Atlas.png-d31c04f819c96dc169ca3db9fc3120ad.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/vehicles/truck_armour_Zombie_Atlas.png"
-dest_files=["res://.godot/imported/truck_armour_Zombie_Atlas.png-d31c04f819c96dc169ca3db9fc3120ad.s3tc.ctex"]
+dest_files=["res://.godot/imported/truck_armour_Zombie_Atlas.png-d31c04f819c96dc169ca3db9fc3120ad.s3tc.ctex", "res://.godot/imported/truck_armour_Zombie_Atlas.png-d31c04f819c96dc169ca3db9fc3120ad.etc2.ctex"]
 
 [params]
 

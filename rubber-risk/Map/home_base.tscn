@@ -202,11 +202,21 @@ texture_pressed = ExtResource("5_g7klc")
 texture_hover = ExtResource("6_s426e")
 
 [node name="Label_Parley_JEE" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 179.0
-offset_top = 150.0
+offset_top = 120.0
 offset_right = 371.0
-offset_bottom = 185.0
+offset_bottom = 155.0
 text = "Parley-JEE: "
+label_settings = SubResource("LabelSettings_2snwx")
+
+[node name="Label_Score" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 163.0
+offset_right = 371.0
+offset_bottom = 198.0
+text = "Score: "
 label_settings = SubResource("LabelSettings_2snwx")
 
 [connection signal="pressed" from="CanvasLayer/Control/UpgradeStation" to="." method="_on_upgrade_station_pressed"]

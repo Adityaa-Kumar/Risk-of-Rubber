@@ -25,3 +25,18 @@ func _ready() -> void:
 		var player = truck_scn.instantiate()
 		player_spawn.add_child(player)
 		player.top_level = true
+
+
+func _process(delta: float) -> void:
+	if Global.selected_car == Global.vehicle.PICKUP:
+		var player = pickup_scn.instantiate()
+		if player.global_trandform.origin.y <= -100:
+			player.global_transform.origin = player_spawn.global_transform.origin
+	elif Global.selected_car == Global.vehicle.SEDAN:
+		var player = sedan_scn.instantiate()
+		if player.global_trandform.origin.y <= -100:
+			player.global_transform.origin = player_spawn.global_transform.origin
+	elif Global.selected_car == Global.vehicle.TRUCK:
+		var player = truck_scn.instantiate()
+		if player.global_trandform.origin.y <= -100:
+			player.global_transform.origin = player_spawn.global_transform.origin

@@ -3,7 +3,7 @@ extends Node3D
 @onready var sedan_armour: Node3D = $car_selector/sedan_armour
 @onready var truck_armour: Node3D = $car_selector/truck_armour
 @onready var label_metal: Label = $Camera3D/CanvasLayer/Resources/Label_metal
-@onready var label_parley_jee: Label = $Camera3D/CanvasLayer/Resources/Label_Parley_JEE
+@onready var label_parley_jee: Label = $Camera3D/CanvasLayer/Resources/Label_parley_jee
 @onready var label_health: Label = $Camera3D/CanvasLayer/Vehicle_Stats/Label_health
 @onready var label_max_health: Label = $Camera3D/CanvasLayer/Vehicle_Stats/Label_max_health
 

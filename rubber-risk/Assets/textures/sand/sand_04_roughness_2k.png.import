@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bm6uee5cisqfk"
 path.s3tc="res://.godot/imported/sand_04_roughness_2k.png-09464b83c54bec0c6b8572a8d569f0cc.s3tc.ctex"
+path.etc2="res://.godot/imported/sand_04_roughness_2k.png-09464b83c54bec0c6b8572a8d569f0cc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/textures/sand/sand_04_roughness_2k.png"
-dest_files=["res://.godot/imported/sand_04_roughness_2k.png-09464b83c54bec0c6b8572a8d569f0cc.s3tc.ctex"]
+dest_files=["res://.godot/imported/sand_04_roughness_2k.png-09464b83c54bec0c6b8572a8d569f0cc.s3tc.ctex", "res://.godot/imported/sand_04_roughness_2k.png-09464b83c54bec0c6b8572a8d569f0cc.etc2.ctex"]
 
 [params]
 

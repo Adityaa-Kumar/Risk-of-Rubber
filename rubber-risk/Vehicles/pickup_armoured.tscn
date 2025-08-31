@@ -522,7 +522,7 @@ noise = SubResource("Resource_s6jnd")
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-0.999824, -0.0143707, 0.0120377, -0.00644167, 0.866408, 0.499295, -0.0176048, 0.49913, -0.866348, -1.75643e-05, 14, -16.9282)
+transform = Transform3D(-0.999389, -0.0270385, 0.0221727, -0.0116012, 0.85457, 0.519206, -0.0329867, 0.518632, -0.854361, -1.75643e-05, 14, -16.9282)
 attributes = SubResource("CameraAttributesPractical_x4iff")
 far = 400.0
 

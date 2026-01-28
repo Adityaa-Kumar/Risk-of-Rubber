@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://rk665no0kiwy"]
+[gd_scene load_steps=4 format=3 uid="uid://rk665no0kiwy"]
 
 [ext_resource type="Script" uid="uid://dq3tghexvijcx" path="res://Scripts/ui.gd" id="1_sgufr"]
 [ext_resource type="FontFile" uid="uid://bpqrym8b16w0s" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="1_w65ie"]
@@ -10,24 +10,14 @@ outline_color = Color(0, 1, 0, 1)
 shadow_size = 3
 shadow_color = Color(1, 0, 0, 1)
 
-[sub_resource type="Theme" id="Theme_sgufr"]
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_color = Color(1, 0, 0, 1)
-Button/colors/font_pressed_color = Color(0, 1, 0, 1)
-Button/colors/icon_focus_color = Color(1, 1, 1, 0)
-Button/font_sizes/font_size = 64
-Button/fonts/font = ExtResource("1_w65ie")
-
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_sgufr")
 
 [node name="lable_snap" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 21.0
-offset_top = 23.0
-offset_right = 61.0
-offset_bottom = 63.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Label_health" type="Label" parent="lable_snap"]
 layout_mode = 0
@@ -44,79 +34,27 @@ offset_bottom = 75.0
 text = "Ammo:"
 label_settings = SubResource("LabelSettings_sgufr")
 
-[node name="Label_Parley_JEE" type="Label" parent="lable_snap"]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 176.0
-offset_bottom = 87.0
-text = "Score:"
-label_settings = SubResource("LabelSettings_sgufr")
-
 [node name="Label_metal" type="Label" parent="lable_snap"]
 layout_mode = 0
-offset_top = 89.0
+offset_top = 58.0
 offset_right = 96.0
-offset_bottom = 124.0
-text = "Metal:"
+offset_bottom = 93.0
+text = "Metal:
+"
 label_settings = SubResource("LabelSettings_sgufr")
 
-[node name="lable_snap2" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-
-[node name="rec" type="Label" parent="lable_snap2"]
+[node name="Label_Parley_JEE" type="Label" parent="lable_snap"]
 layout_mode = 0
-offset_left = -45.0
-offset_top = 23.0
-offset_right = 83.0
-offset_bottom = 46.0
-text = "REC"
+offset_top = 75.0
+offset_right = 176.0
+offset_bottom = 98.0
+text = "Parley-JEE:"
 label_settings = SubResource("LabelSettings_sgufr")
 
-[node name="PauseMenu" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
-grow_vertical = 2
-theme = SubResource("Theme_sgufr")
-
-[node name="Play" type="Button" parent="PauseMenu"]
+[node name="Label_speed" type="Label" parent="lable_snap"]
 layout_mode = 0
-offset_left = 497.0
-offset_top = -219.0
-offset_right = 949.0
-offset_bottom = -67.0
-scale = Vector2(0.684751, 0.673188)
-text = "RESUME"
-
-[node name="Home" type="Button" parent="PauseMenu"]
-layout_mode = 0
-offset_left = 497.0
-offset_top = -22.0
-offset_right = 949.0
-offset_bottom = 124.0
-scale = Vector2(0.684751, 0.673188)
-text = "HOME"
-
-[node name="MMBtn" type="Button" parent="PauseMenu"]
-layout_mode = 0
-offset_left = 417.0
-offset_top = 180.0
-offset_right = 1129.0
-offset_bottom = 326.0
-scale = Vector2(0.684751, 0.673188)
-text = " MAIN MENU "
-
-[connection signal="pressed" from="PauseMenu/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="PauseMenu/Home" to="." method="_on_home_pressed"]
-[connection signal="pressed" from="PauseMenu/MMBtn" to="." method="_on_mm_btn_pressed"]
+offset_top = 117.0
+offset_right = 176.0
+offset_bottom = 140.0
+text = "Speed:"
+label_settings = SubResource("LabelSettings_sgufr")

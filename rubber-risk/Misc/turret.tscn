@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://d0edndfe8rfgi"]
+[gd_scene load_steps=22 format=4 uid="uid://d0edndfe8rfgi"]
 
 [ext_resource type="Script" uid="uid://b72xyfx2qu5kq" path="res://Scripts/turret.gd" id="1_ka2sq"]
 [ext_resource type="Texture2D" uid="uid://bw4rgk4p517pq" path="res://Assets/turret/textures/TP_7_DW_Turret_Mat_baseColor.png" id="2_q0p54"]
@@ -118,10 +118,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ti0cg")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ymn5u"]
-atlas = ExtResource("5_4n2e3")
-region = Rect2(1384, 408, 120, 136)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oldol"]
 shading_mode = 2
 diffuse_mode = 3
@@ -144,18 +140,56 @@ linear_accel_max = 100.0
 [sub_resource type="BoxMesh" id="BoxMesh_xkwdg"]
 size = Vector3(0.1, 0.1, 2)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymn5u"]
+atlas = ExtResource("5_4n2e3")
+region = Rect2(1384, 408, 120, 136)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ka2sq"]
 shading_mode = 2
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(128.498, 0, 0, 1)
+albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
 emission_energy_multiplier = 24.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_q0p54"]
-material = SubResource("StandardMaterial3D_ka2sq")
-size = Vector3(5, 5, 5000)
+[sub_resource type="BoxMesh" id="BoxMesh_ka2sq"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="Animation" id="Animation_q0p54"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gun/OmniLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ka2sq"]
+resource_name = "fire"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gun/OmniLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0p54"]
+_data = {
+&"RESET": SubResource("Animation_q0p54"),
+&"fire": SubResource("Animation_ka2sq")
+}
 
 [node name="turret" type="Node3D"]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, -1.11022e-18, 0, 1.11022e-18, 0.005, 0, 0, 0)
@@ -183,18 +217,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.78143, 24.6433, 149.48)
 target_position = Vector3(0, 0, 50000)
 collision_mask = 2
 
-[node name="Sprite3D" type="Sprite3D" parent="gun"]
-layers = 2
-cast_shadow = 0
-pixel_size = 0.15
-billboard = 1
-double_sided = false
-no_depth_test = true
-fixed_size = true
-texture_filter = 0
-render_priority = 1
-texture = SubResource("AtlasTexture_ymn5u")
-
 [node name="GPUParticles3D" type="GPUParticles3D" parent="gun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.77327, 24.6969, 153.042)
 material_override = SubResource("StandardMaterial3D_oldol")
@@ -208,10 +230,36 @@ fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_ymn5u")
 draw_pass_1 = SubResource("BoxMesh_xkwdg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="gun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 2555.85)
+[node name="Sprite3D" type="Sprite3D" parent="gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 1.00136e-05, 0)
 cast_shadow = 0
-mesh = SubResource("BoxMesh_q0p54")
+ignore_occlusion_culling = true
+pixel_size = 0.15
+billboard = 1
+double_sided = false
+no_depth_test = true
+fixed_size = true
+texture_filter = 0
+render_priority = 1
+texture = SubResource("AtlasTexture_ymn5u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="gun"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.69407e-23, 0, 1.69407e-23, 1, -10.7801, 24.569, 155.111)
+visible = false
+light_color = Color(1, 0.784314, 0.466667, 1)
+light_energy = 4.0
+omni_range = 8.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5000, -3.46, 25.013, 2546.09)
+material_override = SubResource("StandardMaterial3D_ka2sq")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ka2sq")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q0p54")
+}

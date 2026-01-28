@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		$AnimatedSprite3D.play("walk")
 	if health <= 0:
-		Global.score += 5
 		queue_free()
 	
 	if distance_to_player > 200:

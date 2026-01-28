@@ -6,13 +6,6 @@ extends Node3D
 @onready var player_spawn: Node3D = $player_spawn
 
 func _ready() -> void:
-	Global.load_game()
-	if Global.selected_car == Global.vehicle.PICKUP:
-		Global.player_health = Global.pickup_health
-	elif Global.selected_car == Global.vehicle.SEDAN:
-		Global.player_health = Global.sedan_health
-	elif Global.selected_car == Global.vehicle.TRUCK:
-		Global.player_health = Global.truck_health
 	if Global.selected_car == Global.vehicle.PICKUP:
 		var player = pickup_scn.instantiate()
 		player_spawn.add_child(player)
@@ -25,3 +18,10 @@ func _ready() -> void:
 		var player = truck_scn.instantiate()
 		player_spawn.add_child(player)
 		player.top_level = true
+	
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("esc") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	elif Input.is_action_just_pressed("esc") and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

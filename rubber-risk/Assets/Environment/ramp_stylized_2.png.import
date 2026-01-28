@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://8a8xiy4yrqlj"
 path.s3tc="res://.godot/imported/ramp_stylized_2.png-5dfa7437de5c196d9f2eb5121b068e8a.s3tc.ctex"
+path.etc2="res://.godot/imported/ramp_stylized_2.png-5dfa7437de5c196d9f2eb5121b068e8a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Environment/ramp_stylized_2.png"
-dest_files=["res://.godot/imported/ramp_stylized_2.png-5dfa7437de5c196d9f2eb5121b068e8a.s3tc.ctex"]
+dest_files=["res://.godot/imported/ramp_stylized_2.png-5dfa7437de5c196d9f2eb5121b068e8a.s3tc.ctex", "res://.godot/imported/ramp_stylized_2.png-5dfa7437de5c196d9f2eb5121b068e8a.etc2.ctex"]
 
 [params]
 

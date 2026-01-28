@@ -13,6 +13,7 @@ config_version=5
 config/name="Risk of Rubber"
 run/main_scene="uid://blsw4kqsk7674"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/image="uid://b0b6rt1yk7mjg"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -126,3 +127,4 @@ disable_update_check=false
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

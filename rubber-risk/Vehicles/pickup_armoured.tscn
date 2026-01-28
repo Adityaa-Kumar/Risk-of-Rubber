@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://ijuqn2p251lo"]
+[gd_scene load_steps=61 format=4 uid="uid://ijuqn2p251lo"]
 
 [ext_resource type="Script" uid="uid://cxyyhbmqr3eaf" path="res://Vehicles/pickup_armoured.gd" id="1_2xxnf"]
 [ext_resource type="Texture2D" uid="uid://brjqfn2yevsff" path="res://Assets/vehicles/pickup_armour_Zombie_Atlas.png" id="1_scn8u"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="12_feje4"]
 [ext_resource type="PackedScene" uid="uid://d0edndfe8rfgi" path="res://Misc/turret.tscn" id="12_r8dsh"]
 [ext_resource type="Script" uid="uid://c4d8msey6vube" path="res://addons/compass/entities/compassbar.gd" id="13_o24gp"]
+[ext_resource type="Shader" uid="uid://cme60v5btj27a" path="res://Shaders/pickup_armoured.gdshader" id="15_dw1rw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f18fi"]
 resource_name = "Atlas"
@@ -213,7 +214,7 @@ positional_multiplier_y = 0.2
 positional_multiplier_z = 0.2
 metadata/_custom_type_script = "uid://cuffvge5ad4aa"
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_x4iff"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_feje4"]
 dof_blur_far_distance = 45.0
 dof_blur_far_transition = 6.0
 dof_blur_near_distance = 0.05
@@ -285,6 +286,13 @@ size = Vector2(3, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hyw0d"]
 size = Vector3(2.3172, 1, 5.53738)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o24gp"]
+render_priority = 0
+shader = ExtResource("15_dw1rw")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dw1rw"]
+size = Vector2(2, 2)
 
 [sub_resource type="Curve" id="Curve_hyw0d"]
 _limits = [0.0, 2.0, 0.0, 1.0]
@@ -505,8 +513,8 @@ noise = SubResource("Resource_s6jnd")
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-0.9999599, 0.008010527, -0.004011368, 0.004858005, 0.8610577, 0.5084841, 0.007527245, 0.50844425, -0.8610621, -1.756425e-05, 14.000002, -16.928202)
-attributes = SubResource("CameraAttributesPractical_x4iff")
+transform = Transform3D(-0.9997479, -0.018031588, 0.013381239, -0.008695686, 0.86033756, 0.50965065, -0.020702193, 0.50940585, -0.8602774, -1.756425e-05, 14.000002, -16.928202)
+attributes = SubResource("CameraAttributesPractical_feje4")
 far = 400.0
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -590,6 +598,12 @@ transform = Transform3D(0.005, 0, 0, 0, 0.005, -1.11022e-18, 0, 1.11022e-18, 0.0
 
 [node name="TurretCam" type="Camera3D" parent="turret"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 101.532, -39.98)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="turret/TurretCam"]
+material_override = SubResource("ShaderMaterial_o24gp")
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_dw1rw")
 
 [node name="Area3D" type="Area3D" parent="."]
 

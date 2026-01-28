@@ -40,6 +40,7 @@ folder_colors={
 "res://Misc/": "yellow",
 "res://Resources/": "blue",
 "res://Scripts/": "green",
+"res://Shaders/": "purple",
 "res://Vehicles/": "teal",
 "res://addons/": "purple"
 }

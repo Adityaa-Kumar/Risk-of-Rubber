@@ -4,7 +4,7 @@ extends Node3D
 @onready var timer: Timer = $Timer
 
 var can_spawn: bool = false
-var max_spawn: int = 2
+var max_spawn: int = 10
 var spawned: int = 0
 @export var big_enemy :bool = true
 

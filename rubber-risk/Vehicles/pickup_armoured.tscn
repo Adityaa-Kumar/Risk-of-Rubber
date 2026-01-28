@@ -194,19 +194,9 @@ shadow_mesh = SubResource("ArrayMesh_y6cld")
 script = ExtResource("4_wnlme")
 duration = 0.5
 transition = 3
-ease = 2
 
 [sub_resource type="Resource" id="Resource_jooe3"]
 script = ExtResource("5_s6jnd")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
 far = 400.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_lbjo1"]
@@ -217,14 +207,7 @@ dof_blur_near_distance = 0.05
 [sub_resource type="Resource" id="Resource_s6jnd"]
 script = ExtResource("6_wnlme")
 amplitude = 4.0
-frequency = 0.2
 randomize_noise_seed = 0
-noise_seed = 0
-rotational_noise = true
-positional_noise = false
-rotational_multiplier_x = 1.0
-rotational_multiplier_y = 1.0
-rotational_multiplier_z = 1.0
 positional_multiplier_x = 0.2
 positional_multiplier_y = 0.2
 positional_multiplier_z = 0.2
@@ -483,7 +466,7 @@ skeleton = NodePath("")
 
 [node name="PlayerPhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(-1, 1.26759e-06, -2.19553e-06, 0, 0.866025, 0.5, 2.53518e-06, 0.5, -0.866025, -1.75643e-05, 14, -16.9282)
+transform = Transform3D(-0.9999999, 1.2675918e-06, -2.1955316e-06, 0, 0.8660252, 0.5000003, 2.535182e-06, 0.5000003, -0.8660251, -1.756425e-05, 14.000002, -16.928202)
 script = ExtResource("3_eovx8")
 priority = 1
 follow_mode = 6
@@ -503,7 +486,7 @@ noise = SubResource("Resource_s6jnd")
 
 [node name="PlayerPhantomCamera3D2" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 14, 16.9282)
+transform = Transform3D(1, 0, 0, 0, 0.8660252, 0.5000003, 0, -0.5000003, 0.8660252, 0, 14.000002, 16.928202)
 script = ExtResource("3_eovx8")
 follow_mode = 6
 follow_target = NodePath("..")
@@ -522,7 +505,7 @@ noise = SubResource("Resource_s6jnd")
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-0.999824, -0.0143707, 0.0120377, -0.00644167, 0.866408, 0.499295, -0.0176048, 0.49913, -0.866348, -1.75643e-05, 14, -16.9282)
+transform = Transform3D(-0.9997126, 0.022811271, -0.0073824204, 0.015963875, 0.863026, 0.5049072, 0.0178888, 0.5046443, -0.8631421, -1.756425e-05, 14.000002, -16.928202)
 attributes = SubResource("CameraAttributesPractical_x4iff")
 far = 400.0
 
@@ -605,6 +588,9 @@ shape = SubResource("BoxShape3D_hyw0d")
 [node name="turret" parent="." instance=ExtResource("12_r8dsh")]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, -1.11022e-18, 0, 1.11022e-18, 0.005, 0.486418, 1.87168, 0.350087)
 
+[node name="TurretCam" type="Camera3D" parent="turret"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 101.532, -39.98)
+
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
@@ -633,5 +619,8 @@ billboard = 2
 no_depth_test = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_ag2s2")
+
+[node name="ChaseCam" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 3.6, -8)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

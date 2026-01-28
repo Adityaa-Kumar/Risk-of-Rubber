@@ -1,17 +1,12 @@
-[gd_scene load_steps=77 format=4 uid="uid://d3xrbhic1oxex"]
+[gd_scene load_steps=75 format=4 uid="uid://d3xrbhic1oxex"]
 
 [ext_resource type="Script" uid="uid://ckosvxtse2mcf" path="res://Misc/player.gd" id="1_bqnbe"]
 [ext_resource type="Texture2D" uid="uid://day0du47k6yyr" path="res://Assets/textures/crosshairs_tilesheet_white@2.png" id="2_4ntmi"]
-[ext_resource type="Script" uid="uid://cdfc36ny7dox" path="res://Scripts/reward_res_script.gd" id="2_62cwq"]
 [ext_resource type="FontFile" uid="uid://bpqrym8b16w0s" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="3_8mh4l"]
 [ext_resource type="AudioStream" uid="uid://bt3blket0f71u" path="res://Assets/gun/762x54r Single MP3.mp3" id="3_btcbx"]
 [ext_resource type="Material" uid="uid://eu6lh0fr601x" path="res://addons/compass/resources/compassbar.material" id="4_8604q"]
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="5_62cwq"]
 [ext_resource type="Script" uid="uid://c4d8msey6vube" path="res://addons/compass/entities/compassbar.gd" id="6_ioerw"]
-
-[sub_resource type="Resource" id="Resource_ioerw"]
-script = ExtResource("2_62cwq")
-metadata/_custom_type_script = "uid://cdfc36ny7dox"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqnbe"]
 albedo_color = Color(1, 0, 0, 1)
@@ -807,6 +802,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(-1.30393e-22, 1.5708, -1.5708)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("head/Camera3D:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [75.0, 25.0]
+}
 
 [sub_resource type="Animation" id="Animation_4ntmi"]
 length = 0.001
@@ -893,6 +900,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("head/Camera3D:fov")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
 }
 
 [sub_resource type="Animation" id="Animation_gwnis"]
@@ -1074,7 +1093,6 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_bqnbe")
-player_resource = SubResource("Resource_ioerw")
 
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, 1.2, 0)

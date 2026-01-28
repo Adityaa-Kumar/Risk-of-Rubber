@@ -16,6 +16,7 @@ extends VehicleBody3D
 @onready var back_cam: PhantomCamera3D = %PlayerPhantomCamera3D
 @onready var front_cam: PhantomCamera3D = %PlayerPhantomCamera3D2
 @onready var player_scn = preload("res://Misc/player.tscn")
+#@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 #endregion
 
 #region player resources
@@ -32,12 +33,26 @@ var health :float = 200
 var is_cam_back :bool = true
 var speed :float
 var is_dead :bool = false
+var cam :int = 0
 #endregion
 
 #regions funcs
 func _ready() -> void:
 	player_resource = Reward.new()
 	player_resource.Ammo = 250
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("change_cam"):
+		cam = cam + 1 if cam < 2 else 0
+		match(cam):
+			0:
+				$MainCamera3D.make_current()
+			1:
+				$ChaseCam.make_current()
+			2:
+				$turret/TurretCam.make_current()
+		
+	
 
 func _physics_process(delta: float) -> void:
 	if not is_dead:
@@ -48,11 +63,16 @@ func _physics_process(delta: float) -> void:
 		Global.player_position = global_position
 		
 		if Input.is_action_pressed("throttle_up"):
+			#if not audio_stream_player_3d.playing:
+				#audio_stream_player_3d.play()
 			current_power = lerp(current_power, horsepower, acceleration * delta)
+			#audio_stream_player_3d.pitch_scale = lerp(audio_stream_player_3d.pitch_scale, 2.0, 2 * delta)
 		elif Input.is_action_pressed("throttle_down"):
 			current_power = lerp(current_power, reverse_power, rev_acceleration * delta)
+			#audio_stream_player_3d.pitch_scale = lerp(audio_stream_player_3d.pitch_scale, 1.0, 2 * delta)
 		else:
 			current_power = lerp(current_power, 0.0, drag * delta)
+			#audio_stream_player_3d.pitch_scale = lerp(audio_stream_player_3d.pitch_scale, 1.0, 2 * delta)
 		
 		if Input.is_action_pressed("steer_left"):
 			steering = lerp_angle(steering, deg_to_rad(steer_angle), steer_speed * delta)
@@ -79,14 +99,14 @@ func _physics_process(delta: float) -> void:
 			front_cam.priority = 0
 			is_cam_back = true
 		
-		handle_health()
+		handle_health(delta)
 		
 		if Input.is_action_just_pressed("reset"):
 			self.rotation = Vector3.ZERO
 		if Input.is_action_just_pressed("parking_brake"):
 			take_damage(20)
 
-func handle_health():
+func handle_health(delta):
 	if health < 50:
 		$smoke.emitting = true
 	if health <= 0 and not is_dead:
@@ -95,6 +115,7 @@ func handle_health():
 		$wheelBackLeft.queue_free()
 		$wheelBackRight.queue_free()
 		$turret.queue_free()
+		#audio_stream_player_3d.pitch_scale = 0.2
 		is_dead = true
 		apply_impulse(Vector3(0.0, 500.0, 0.0), Vector3.ZERO)
 		Engine.time_scale = 0.2
@@ -104,6 +125,7 @@ func handle_health():
 		await  $MainCamera3D/AnimationPlayer.animation_finished
 		await  get_tree().create_timer(10, true, false, true).timeout
 		spawn_player()
+		#audio_stream_player_3d.queue_free()
 	
 
 func spawn_player() -> void:

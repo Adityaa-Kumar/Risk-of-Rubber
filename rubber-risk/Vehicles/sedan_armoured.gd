@@ -32,12 +32,26 @@ var health :float = 100
 var is_cam_back :bool = true
 var speed :float
 var is_dead :bool = false
+var cam :int = 0
 #endregion
 
 #regions funcs
 func _ready() -> void:
 	player_resource = Reward.new()
 	player_resource.Ammo = 250
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("change_cam"):
+		cam = cam + 1 if cam < 2 else 0
+		match(cam):
+			0:
+				$MainCamera3D.make_current()
+			1:
+				$ChaseCam.make_current()
+			2:
+				$turret/TurretCam.make_current()
+		
+	
 
 func _physics_process(delta: float) -> void:
 	if not is_dead:

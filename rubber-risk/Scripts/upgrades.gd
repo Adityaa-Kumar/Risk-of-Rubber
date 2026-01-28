@@ -77,7 +77,7 @@ func _on_button_5_pressed() -> void:
 	SceneLoader.load_scene("res://Map/home_base.tscn")
 
 func _on_health_up_pressed() -> void:
-	if Global.metal >= 10:
+	if Global.metal >= 10 and Global.parley_jee >= 10:
 		if Global.selected_car == Global.vehicle.PICKUP:
 			Global.pickup_max_health += 10
 			Global.metal -= 10
@@ -92,7 +92,7 @@ func _on_health_up_pressed() -> void:
 			Global.parley_jee -= 10
 
 func _on_ammo_up_pressed() -> void:
-	if Global.metal >= 10:
+	if Global.metal >= 10 and Global.parley_jee >= 10:
 		var heal_amount = 0
 		if Global.selected_car == Global.vehicle.PICKUP and Global.pickup_health < Global.pickup_max_health:
 			heal_amount = min(10, Global.pickup_max_health - Global.pickup_health)

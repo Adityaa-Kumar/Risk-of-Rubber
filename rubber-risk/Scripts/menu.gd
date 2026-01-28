@@ -5,6 +5,7 @@ extends Node3D
 @onready var label_metal: Label = $Camera3D/CanvasLayer/Metal/Label_metal
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Global.load_game()
 	if Global.selected_car == Global.vehicle.PICKUP:
 		sedan_armour.visible = false

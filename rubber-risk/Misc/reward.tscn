@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cffboqvwbmyqr" path="res://Assets/Environment/Chest_Zombie_Atlas.png" id="1_6hqkl"]
 [ext_resource type="Script" uid="uid://cp6umfwpc4ves" path="res://Misc/reward.gd" id="1_lpl83"]
-[ext_resource type="Script" uid="uid://cdfc36ny7dox" path="res://Scripts/reward_res_script.gd" id="2_eq1s7"]
+[ext_resource type="Script" uid="uid://dba3j5oor5fk" path="res://Scripts/reward_res_script.gd" id="2_eq1s7"]
 [ext_resource type="Texture2D" uid="uid://pu3x0kegydop" path="res://Assets/ShockWave.png" id="3_5funs"]
 [ext_resource type="Texture2D" uid="uid://dtibyqf2eemef" path="res://Assets/textures/Hit.png" id="4_tgpyp"]
 

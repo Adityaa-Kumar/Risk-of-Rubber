@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="Reward" load_steps=2 format=3 uid="uid://bvjlwouriv231"]
+[gd_resource type="Resource" script_class="Reward" load_steps=2 format=3 uid="uid://b1mmjck72behv"]
 
-[ext_resource type="Script" uid="uid://cdfc36ny7dox" path="res://Scripts/reward_res_script.gd" id="1_n8squ"]
+[ext_resource type="Script" uid="uid://dba3j5oor5fk" path="res://Scripts/reward_res_script.gd" id="1_n8squ"]
 
 [resource]
 script = ExtResource("1_n8squ")
-Ammo = 120
+Ammo = 250
 Metal = 60
 Parley_JEE = 15
-metadata/_custom_type_script = "uid://cdfc36ny7dox"

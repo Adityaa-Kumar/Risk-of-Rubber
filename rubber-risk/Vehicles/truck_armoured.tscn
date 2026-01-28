@@ -1,10 +1,9 @@
-[gd_scene load_steps=65 format=4 uid="uid://bb24j2grk0ue"]
+[gd_scene load_steps=62 format=4 uid="uid://bb24j2grk0ue"]
 
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_mc31x"]
 [ext_resource type="Script" uid="uid://cpwiin7eyy4yi" path="res://Vehicles/truck_armoured.gd" id="1_s1jyb"]
 [ext_resource type="Texture2D" uid="uid://bbkkwcd8kh7iw" path="res://Assets/vehicles/truck_armour_Zombie_Atlas.png" id="1_xrlui"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_xrlui"]
-[ext_resource type="Script" uid="uid://cdfc36ny7dox" path="res://Scripts/reward_res_script.gd" id="2_y20wq"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="3_s1jyb"]
 [ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_sfv88"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_n3lpx"]
@@ -16,14 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="11_y20wq"]
 [ext_resource type="Script" uid="uid://c4d8msey6vube" path="res://addons/compass/entities/compassbar.gd" id="12_uhps3"]
 [ext_resource type="Texture2D" uid="uid://brge1h1om87ue" path="res://Assets/explosion/Explosions pack/explosion-1-d/spritsheet.png" id="12_wdni5"]
-[ext_resource type="AudioStream" uid="uid://cjjhamdedstuj" path="res://Assets/sound/Vehicle_Car_Engine_1000_RPM_Rear_Exterior_Loop_Mono.mp3" id="17_uhps3"]
-
-[sub_resource type="Resource" id="Resource_uhps3"]
-script = ExtResource("2_y20wq")
-Ammo = 0
-Metal = 0
-Parley_JEE = 0
-metadata/_custom_type_script = "uid://cdfc36ny7dox"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emxra"]
 resource_name = "Atlas"
@@ -206,9 +197,11 @@ positional_multiplier_y = 0.2
 positional_multiplier_z = 0.2
 metadata/_custom_type_script = "uid://cuffvge5ad4aa"
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_uhps3"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_vq1ig"]
+dof_blur_far_enabled = true
 dof_blur_far_distance = 45.0
 dof_blur_far_transition = 6.0
+dof_blur_near_enabled = true
 dof_blur_near_distance = 0.05
 
 [sub_resource type="LabelSettings" id="LabelSettings_c6ydn"]
@@ -516,7 +509,6 @@ horsepower = 80.0
 reverse_power = -60.0
 acceleration = 1.0
 brake_power = 4.0
-player_resource = SubResource("Resource_uhps3")
 
 [node name="wheelFrontLeft" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.938494, 0.439056, 1.16208)
@@ -603,8 +595,8 @@ noise = SubResource("Resource_s6jnd")
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-0.999519, 0.0245101, -0.0190163, 0.0119183, 0.869347, 0.494058, 0.0286412, 0.493593, -0.869221, -1.75643e-05, 14, -16.9282)
-attributes = SubResource("CameraAttributesPractical_uhps3")
+transform = Transform3D(-0.99975, 0.0177842, -0.0135744, 0.00906855, 0.876784, 0.480799, 0.0204525, 0.480556, -0.876726, -1.75643e-05, 14, -16.9282)
+attributes = SubResource("CameraAttributesPractical_vq1ig")
 far = 400.0
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -725,11 +717,5 @@ billboard = 2
 no_depth_test = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_c6ydn")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06414, 1.94842)
-stream = ExtResource("17_uhps3")
-unit_size = 15.0
-parameters/looping = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

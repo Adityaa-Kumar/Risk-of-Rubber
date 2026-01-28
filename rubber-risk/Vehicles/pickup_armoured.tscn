@@ -1,8 +1,7 @@
-[gd_scene load_steps=61 format=4 uid="uid://ijuqn2p251lo"]
+[gd_scene load_steps=58 format=4 uid="uid://ijuqn2p251lo"]
 
 [ext_resource type="Script" uid="uid://cxyyhbmqr3eaf" path="res://Vehicles/pickup_armoured.gd" id="1_2xxnf"]
 [ext_resource type="Texture2D" uid="uid://brjqfn2yevsff" path="res://Assets/vehicles/pickup_armour_Zombie_Atlas.png" id="1_scn8u"]
-[ext_resource type="Script" uid="uid://cdfc36ny7dox" path="res://Scripts/reward_res_script.gd" id="2_jooe3"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_pjc2b"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_eovx8"]
 [ext_resource type="Texture2D" uid="uid://dphmf07kufkah" path="res://Assets/textures/smoke.png" id="3_s6jnd"]
@@ -16,11 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="12_feje4"]
 [ext_resource type="PackedScene" uid="uid://d0edndfe8rfgi" path="res://Misc/turret.tscn" id="12_r8dsh"]
 [ext_resource type="Script" uid="uid://c4d8msey6vube" path="res://addons/compass/entities/compassbar.gd" id="13_o24gp"]
-[ext_resource type="AudioStream" uid="uid://c6b5e755gp03p" path="res://Assets/sound/Vehicle_Car_Engine_1000_RPM_Front_Exterior_Loop_Mono.mp3" id="17_feje4"]
-
-[sub_resource type="Resource" id="Resource_lbjo1"]
-script = ExtResource("2_jooe3")
-metadata/_custom_type_script = "uid://cdfc36ny7dox"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f18fi"]
 resource_name = "Atlas"
@@ -200,9 +194,19 @@ shadow_mesh = SubResource("ArrayMesh_y6cld")
 script = ExtResource("4_wnlme")
 duration = 0.5
 transition = 3
+ease = 2
 
 [sub_resource type="Resource" id="Resource_jooe3"]
 script = ExtResource("5_s6jnd")
+keep_aspect = 1
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
 far = 400.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_lbjo1"]
@@ -213,13 +217,20 @@ dof_blur_near_distance = 0.05
 [sub_resource type="Resource" id="Resource_s6jnd"]
 script = ExtResource("6_wnlme")
 amplitude = 4.0
+frequency = 0.2
 randomize_noise_seed = 0
+noise_seed = 0
+rotational_noise = true
+positional_noise = false
+rotational_multiplier_x = 1.0
+rotational_multiplier_y = 1.0
+rotational_multiplier_z = 1.0
 positional_multiplier_x = 0.2
 positional_multiplier_y = 0.2
 positional_multiplier_z = 0.2
 metadata/_custom_type_script = "uid://cuffvge5ad4aa"
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_feje4"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_x4iff"]
 dof_blur_far_distance = 45.0
 dof_blur_far_transition = 6.0
 dof_blur_near_distance = 0.05
@@ -413,7 +424,6 @@ animations = [{
 [node name="Pickup_Armoured" type="VehicleBody3D" groups=["Player"]]
 script = ExtResource("1_2xxnf")
 brake_power = 4.0
-player_resource = SubResource("Resource_lbjo1")
 
 [node name="pickup_armour" type="Node3D" parent="."]
 
@@ -422,20 +432,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00671288, 1.10237, 0.074350
 mesh = SubResource("ArrayMesh_ryxq1")
 skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_wjt2x")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="pickup_armour"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.884403, 1.02478, 2.66206)
-light_energy = 2.0
-shadow_enabled = true
-spot_range = 20.0
-spot_angle = 50.0
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="pickup_armour"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.898442, 1.02478, 2.66206)
-light_energy = 2.0
-shadow_enabled = true
-spot_range = 20.0
-spot_angle = 50.0
 
 [node name="wheelFrontLeft" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.938686, 0.433373, 1.88824)
@@ -487,7 +483,7 @@ skeleton = NodePath("")
 
 [node name="PlayerPhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(-0.9999999, 1.2675918e-06, -2.1955316e-06, 0, 0.8660252, 0.5000003, 2.535182e-06, 0.5000003, -0.8660251, -1.756425e-05, 14.000002, -16.928202)
+transform = Transform3D(-1, 1.26759e-06, -2.19553e-06, 0, 0.866025, 0.5, 2.53518e-06, 0.5, -0.866025, -1.75643e-05, 14, -16.9282)
 script = ExtResource("3_eovx8")
 priority = 1
 follow_mode = 6
@@ -507,7 +503,7 @@ noise = SubResource("Resource_s6jnd")
 
 [node name="PlayerPhantomCamera3D2" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.8660252, 0.5000003, 0, -0.5000003, 0.8660252, 0, 14.000002, 16.928202)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 14, 16.9282)
 script = ExtResource("3_eovx8")
 follow_mode = 6
 follow_target = NodePath("..")
@@ -526,8 +522,8 @@ noise = SubResource("Resource_s6jnd")
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-0.99998677, -0.0043932954, -0.0026695256, -0.0051393327, 0.86658806, 0.49899775, 0.0001211341, 0.49900493, -0.8665992, -1.756425e-05, 14.000002, -16.928202)
-attributes = SubResource("CameraAttributesPractical_feje4")
+transform = Transform3D(-0.999824, -0.0143707, 0.0120377, -0.00644167, 0.866408, 0.499295, -0.0176048, 0.49913, -0.866348, -1.75643e-05, 14, -16.9282)
+attributes = SubResource("CameraAttributesPractical_x4iff")
 far = 400.0
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -606,9 +602,8 @@ draw_pass_1 = SubResource("QuadMesh_wjt2x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.012, 0)
 shape = SubResource("BoxShape3D_hyw0d")
 
-[node name="turret" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("12_r8dsh")]
+[node name="turret" parent="." instance=ExtResource("12_r8dsh")]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, -1.11022e-18, 0, 1.11022e-18, 0.005, 0.486418, 1.87168, 0.350087)
-player_node = NodePath("..")
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -638,11 +633,5 @@ billboard = 2
 no_depth_test = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_ag2s2")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06414, 1.94842)
-stream = ExtResource("17_feje4")
-unit_size = 12.0
-parameters/looping = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

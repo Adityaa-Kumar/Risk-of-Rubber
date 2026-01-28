@@ -17,12 +17,11 @@ extends VehicleBody3D
 @onready var front_cam: PhantomCamera3D = %PlayerPhantomCamera3D2
 @onready var area_3d: Area3D = $Area3D
 @onready var player_scn = preload("res://Misc/player.tscn")
-@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 #endregion
 
-#region player resources
-@export var player_resource :Reward
-#endregion
+##region player resources
+#@export var player_resource :Reward
+##endregion
 
 #region onready vars
 @onready var gpu_particles_3d_l: GPUParticles3D = $GPUParticles3D
@@ -30,7 +29,7 @@ extends VehicleBody3D
 
 #region vars
 var current_power :float = 0.0
-var health :float = 120
+var health :int = Global.player_health
 var is_cam_back :bool = true
 var speed :float
 var is_dead :bool = false
@@ -38,29 +37,23 @@ var is_dead :bool = false
 
 #regions funcs
 func _ready() -> void:
-	player_resource = Reward.new()
-	player_resource.Ammo = 250
-	
+	pass
+	#player_resource = Reward.new()
+	#player_resource.Ammo = 250
 
 func _physics_process(delta: float) -> void:
 	if not is_dead:
 		engine_force = current_power
 		speed = linear_velocity.length() * 3.6
 		Global.player_speed = int(speed)
-		Global.player_health = health
 		Global.player_position = global_position
 		
 		if Input.is_action_pressed("throttle_up"):
-			if not audio_stream_player_3d.playing:
-				audio_stream_player_3d.play()
-			audio_stream_player_3d.pitch_scale = lerp(audio_stream_player_3d.pitch_scale, 2.0, 2 * delta)
 			current_power = lerp(current_power, horsepower, acceleration * delta)
 		elif Input.is_action_pressed("throttle_down"):
 			current_power = lerp(current_power, reverse_power, rev_acceleration * delta)
-			audio_stream_player_3d.pitch_scale = lerp(audio_stream_player_3d.pitch_scale, 2.0, 2 * delta)
 		else:
 			current_power = lerp(current_power, 0.0, drag * delta)
-			audio_stream_player_3d.pitch_scale = lerp(audio_stream_player_3d.pitch_scale, 1.0, 2 * delta)
 		
 		if Input.is_action_pressed("steer_left"):
 			steering = lerp_angle(steering, deg_to_rad(steer_angle), steer_speed * delta)
@@ -77,7 +70,7 @@ func _physics_process(delta: float) -> void:
 			mass = 40
 			brake = 0
 		
-		Global.player_resource_global = player_resource
+		#Global.player_resource_global = player_resource
 		
 		if Input.is_action_just_pressed("rotate_cam") and is_cam_back:
 			back_cam.priority = 0
@@ -98,15 +91,14 @@ func _physics_process(delta: float) -> void:
 		
 
 func handle_health(delta):
-	if health < 50:
+	if Global.player_health < 50:
 		$smoke.emitting = true
-	if health <= 0 and not is_dead:
+	if Global.player_health <= 0 and not is_dead:
 		$wheelFrontLeft.queue_free()
 		$wheelFrontRight.queue_free()
 		$wheelBackLeft.queue_free()
 		$wheelBackRight.queue_free()
 		$turret.queue_free()
-		audio_stream_player_3d.pitch_scale = 0.2
 		is_dead = true
 		apply_impulse(Vector3(0.0, 500.0, 0.0), Vector3.ZERO)
 		Engine.time_scale = 0.2
@@ -115,17 +107,16 @@ func handle_health(delta):
 		$MainCamera3D/AnimationPlayer.play("death")
 		await  $MainCamera3D/AnimationPlayer.animation_finished
 		await  get_tree().create_timer(10, true, false, true).timeout
-		audio_stream_player_3d.queue_free()
 		spawn_player()
 		
 
-func set_resource(resource :Reward) -> void:
-	player_resource.Ammo += resource.Ammo
-	player_resource.Metal += resource.Metal
-	player_resource.Parley_JEE += resource.Parley_JEE
+#func set_resource(resource :Reward) -> void:
+	#player_resource.Ammo += resource.Ammo
+	#player_resource.Metal += resource.Metal
+	#player_resource.Parley_JEE += resource.Parley_JEE
 
 func take_damage(damage :int):
-	health -= damage
+	Global.player_health -= damage
 
 func spawn_player() -> void:
 	$MainCamera3D/UI.queue_free()

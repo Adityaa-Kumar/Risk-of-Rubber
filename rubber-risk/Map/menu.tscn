@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://blsw4kqsk7674"]
+[gd_scene load_steps=63 format=4 uid="uid://blsw4kqsk7674"]
 
 [ext_resource type="Texture2D" uid="uid://ckobbk2pqsijx" path="res://Assets/textures/sand/sand_04_color_2k.png" id="1_tj141"]
 [ext_resource type="Script" uid="uid://bcq8q2kxp68i4" path="res://Scripts/menu.gd" id="1_wmv4b"]
@@ -8,12 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://brjqfn2yevsff" path="res://Assets/vehicles/pickup_armour_Zombie_Atlas.png" id="6_wmv4b"]
 [ext_resource type="Texture2D" uid="uid://cqd8wciviidft" path="res://Assets/vehicles/sedan_armour_Zombie_Atlas.png" id="7_5u2v3"]
 [ext_resource type="Texture2D" uid="uid://bbkkwcd8kh7iw" path="res://Assets/vehicles/truck_armour_Zombie_Atlas.png" id="8_pmllv"]
-[ext_resource type="Texture2D" uid="uid://cxi7i4r5of1jn" path="res://Assets/sound/vintage_stereo_speaker_low-res_0.png" id="9_ag7ma"]
-[ext_resource type="Texture2D" uid="uid://dpqvmfo6yvtfu" path="res://Assets/sound/vintage_stereo_speaker_low-res_1.png" id="10_dpydq"]
-[ext_resource type="Texture2D" uid="uid://be3a5rsqwvvb0" path="res://Assets/sound/vintage_stereo_speaker_low-res_2.png" id="11_n4bpc"]
-[ext_resource type="AudioStream" uid="uid://8uwemusme2hi" path="res://Assets/sound/Bogart VGM - 8Bit Action- Stage 4.mp3" id="12_4hb5y"]
-[ext_resource type="AudioStream" uid="uid://c87tboob24g4i" path="res://Assets/sound/Bogart VGM - 8Bit Action- Stage 6.mp3" id="13_h0ax1"]
-[ext_resource type="AudioStream" uid="uid://cbcmukkphun0a" path="res://Assets/sound/Great Boss.ogg" id="14_q1c81"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ihcf"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -26,20 +20,12 @@ sky_material = SubResource("ProceduralSkyMaterial_2ihcf")
 background_mode = 2
 sky = SubResource("Sky_qs2b8")
 tonemap_mode = 2
-ssr_max_steps = 128
-sdfgi_use_occlusion = true
 glow_enabled = true
 glow_bloom = 0.15
-glow_blend_mode = 1
-fog_enabled = true
-fog_light_color = Color(0.71133, 0.590967, 0.557525, 1)
-adjustment_enabled = true
-adjustment_saturation = 1.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ihcf"]
 albedo_color = Color(0.473194, 0.377202, 0.38047, 1)
 albedo_texture = ExtResource("1_tj141")
-roughness = 0.7
 roughness_texture = ExtResource("3_ckxav")
 normal_enabled = true
 normal_scale = 6.0
@@ -60,6 +46,7 @@ Button/fonts/font = ExtResource("4_73gyw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckxav"]
 albedo_color = Color(0, 0, 0, 1)
+roughness = 0.6
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ru77h"]
 material = SubResource("StandardMaterial3D_ckxav")
@@ -794,60 +781,7 @@ _data = {
 &"rotate": SubResource("Animation_ru77h")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pnsm"]
-resource_name = "speaker_lowres"
-cull_mode = 2
-albedo_texture = ExtResource("9_ag7ma")
-metallic = 1.0
-metallic_texture = ExtResource("10_dpydq")
-metallic_texture_channel = 2
-roughness_texture = ExtResource("10_dpydq")
-roughness_texture_channel = 1
-normal_enabled = true
-normal_texture = ExtResource("11_n4bpc")
-ao_enabled = true
-ao_texture = ExtResource("10_dpydq")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_jfekj"]
-_surfaces = [{
-"aabb": AABB(-0.17145, 0, -0.1524, 0.3429, 0.6096, 0.3048),
-"format": 34896998401,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
-"name": "speaker_lowres",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_wylbq"]
-resource_name = "Sketchfab_Scene_Object_0"
-_surfaces = [{
-"aabb": AABB(-0.17145, 0, -0.1524, 0.3429, 0.6096, 0.3048),
-"attribute_data": PackedByteArray("/39QSP9/UEjU//8+u6CQPtT//z67oJA+1P//PrugkD7xQ2vA8UNrwMLjhz5zbEA/wuOHPnNsQD/C44c+c2xAP/9/a8D/f2vA2P//PnJsQD/Y//8+cmxAP9j//z5ybEA/8UNQSPFDUEjA44c+uaCQPsDjhz65oJA+wOOHPrmgkD7xQ1BI8UNQSMDjhz65oJA+wOOHPrmgkD7A44c+uaCQPmIAa8BiAGvAAC7EOnRsQD8ALsQ6dGxAPwAuxDp0bEA/8UNrwPFDa8DC44c+c2xAP8Ljhz5zbEA/wuOHPnNsQD9iAFBIYgBQSAAoxDq9oJA+ACjEOr2gkD4AKMQ6vaCQPpz/UEic/1BIv51/P6+gkD6/nX8/r6CQPr+dfz+voJA+jsNrwI7Da8C5j0M/b2xAP7mPQz9vbEA/uY9DP29sQD+c/2vAnP9rwMSdfz9vbEA/xJ1/P29sQD/EnX8/b2xAP47DUEiOw1BItY9DP7OgkD61j0M/s6CQPrWPQz+zoJA+jsNQSI7DUEi1j0M/s6CQPrWPQz+zoJA+tY9DP7OgkD7/f2vA/39rwNj//z5ybEA/2P//PnJsQD/Y//8+cmxAP47Da8COw2vAuY9DP29sQD+5j0M/b2xAP7mPQz9vbEA//39QSP9/UEjU//8+u6CQPtT//z67oJA+1P//PrugkD7/f0IM/39CDM7//z44JUQ9zv//PjglRD3O//8+OCVEPY7DUEiOw1BItY9DP7OgkD61j0M/s6CQPrWPQz+zoJA+jsNCDI7DQgyyj0M/CCVEPbKPQz8IJUQ9so9DPwglRD3/f1BI/39QSNT//z67oJA+1P//PrugkD7U//8+u6CQPo7DefyOw3n8uY9DP3p6fD+5j0M/enp8P7mPQz96enw//39rwP9/a8DY//8+cmxAP9j//z5ybEA/2P//PnJsQD//f3n8/395/Nr//z57enw/2v//Pnt6fD/a//8+e3p8P47Da8COw2vAuY9DP29sQD+5j0M/b2xAP7mPQz9vbEA/"),
-"format": 34896998647,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_1pnsm"),
-"name": "speaker_lowres",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAP///78AAP//AAD/vwAA//////+/AAAAAAAA/78AAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAP+//////////7//////AAD/v///AAD///+///8AAP//AIAAAP////8AgP///////wCAAAAAAP//AIAAAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP+/AAD//////78AAP//AAD/v/////////+//3////9//v//f/7//3/+//9//v//f/7//3/+//9//v//fwAA/38AAP9/AAD/fwAA/3////9/////f////3///wAA/38AAP9/AAD/fwAA/3/+//9//v//f/7//3/+//9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_jfekj")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oxq15"]
-playback_mode = 1
-streams_count = 3
-stream_0/stream = ExtResource("12_4hb5y")
-stream_1/stream = ExtResource("13_h0ax1")
-stream_2/stream = ExtResource("14_q1c81")
-
-[node name="Menu" type="Node3D"]
+[node name="Menu2" type="Node3D"]
 script = ExtResource("1_wmv4b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -856,6 +790,7 @@ environment = SubResource("Environment_tj141")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
+directional_shadow_mode = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.744869, 0.00172214, -0.667208, 0, 0.999997, 0.00258111, 0.667211, -0.00192259, 0.744867, 0, 0, 0)
@@ -879,28 +814,39 @@ theme = SubResource("Theme_wmv4b")
 
 [node name="Button" type="Button" parent="Camera3D/CanvasLayer/buttons"]
 layout_mode = 0
-offset_left = 95.0
-offset_top = -205.0
-offset_right = 547.0
-offset_bottom = -53.0
+offset_left = 115.0
+offset_top = -151.0
+offset_right = 567.0
+offset_bottom = 0.999969
+scale = Vector2(0.684751, 0.673188)
 text = "PLAY"
 
 [node name="Button2" type="Button" parent="Camera3D/CanvasLayer/buttons"]
 layout_mode = 0
-offset_left = 95.0
+offset_left = 115.0
 offset_top = 40.0
-offset_right = 547.0
+offset_right = 567.0
 offset_bottom = 186.0
+scale = Vector2(0.684751, 0.673188)
 text = "EXIT"
 
 [node name="Button3" type="Button" parent="Camera3D/CanvasLayer/buttons"]
 layout_mode = 0
-offset_left = 856.0
+offset_left = 727.0
 offset_top = 278.0
-offset_right = 1076.0
+offset_right = 947.0
 offset_bottom = 321.0
 theme_override_font_sizes/font_size = 32
-text = "switch"
+text = "<-"
+
+[node name="Button4" type="Button" parent="Camera3D/CanvasLayer/buttons"]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 278.0
+offset_right = 1208.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 32
+text = "->"
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54281, 0, 0.574348)
@@ -1004,28 +950,7 @@ libraries = {
 autoplay = "rotate"
 speed_scale = 0.07
 
-[node name="Sketchfab_Scene" type="Node3D" parent="."]
-
-[node name="stuff" type="Node3D" parent="Sketchfab_Scene"]
-transform = Transform3D(1.20765, 0, 0.48124, 0, 1.3, 0, -0.48124, 0, 1.20765, -0.63, 0, -2.275)
-
-[node name="Object_4" type="MeshInstance3D" parent="Sketchfab_Scene/stuff"]
-transform = Transform3D(0.942449, 0, 0.33435, 0, 1, 0, -0.33435, 0, 0.942449, 0, 0, 0)
-mesh = SubResource("ArrayMesh_wylbq")
-skeleton = NodePath("")
-
-[node name="Object_5" type="MeshInstance3D" parent="Sketchfab_Scene/stuff"]
-transform = Transform3D(0.942449, 0, 0.33435, 0, 1, 0, -0.33435, 0, 0.942449, 0.529679, 0, -0.239084)
-mesh = SubResource("ArrayMesh_wylbq")
-skeleton = NodePath("")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sketchfab_Scene/stuff"]
-transform = Transform3D(0.743256, 0, 0.19821, 0, 0.769231, 0, -0.19821, 0, 0.743256, 0, 0, 0)
-stream = SubResource("AudioStreamRandomizer_oxq15")
-unit_size = 2.8
-autoplay = true
-max_distance = 7.0
-
 [connection signal="pressed" from="Camera3D/CanvasLayer/buttons/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Camera3D/CanvasLayer/buttons/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Camera3D/CanvasLayer/buttons/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/buttons/Button4" to="." method="_on_button_4_pressed"]

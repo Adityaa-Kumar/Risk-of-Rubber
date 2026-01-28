@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmxqdr81g77ry"
 path.s3tc="res://.godot/imported/TP_7_Wheels_Mat_normal.png-4a970196399631e7d95d738dea803515.s3tc.ctex"
+path.etc2="res://.godot/imported/TP_7_Wheels_Mat_normal.png-4a970196399631e7d95d738dea803515.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/turret/textures/TP_7_Wheels_Mat_normal.png"
-dest_files=["res://.godot/imported/TP_7_Wheels_Mat_normal.png-4a970196399631e7d95d738dea803515.s3tc.ctex"]
+dest_files=["res://.godot/imported/TP_7_Wheels_Mat_normal.png-4a970196399631e7d95d738dea803515.s3tc.ctex", "res://.godot/imported/TP_7_Wheels_Mat_normal.png-4a970196399631e7d95d738dea803515.etc2.ctex"]
 
 [params]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c87tboob24g4i"
+path="res://.godot/imported/Bogart VGM - 8Bit Action- Stage 6.mp3-b92ff654b8367d8b9c874f7a036f0dfd.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound/Bogart VGM - 8Bit Action- Stage 6.mp3"
+dest_files=["res://.godot/imported/Bogart VGM - 8Bit Action- Stage 6.mp3-b92ff654b8367d8b9c874f7a036f0dfd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

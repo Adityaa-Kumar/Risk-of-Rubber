@@ -11,7 +11,7 @@ var can_fire :bool = true
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$gun/MeshInstance3D.visible = true
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -23,6 +23,7 @@ func _input(event: InputEvent) -> void:
 		gpu_particles_3d.emitting = true
 		if can_fire and player_node.player_resource.Ammo > 0:
 			can_fire = false
+			#$AnimationPlayer.play("fire")
 			$Timer.start()
 			await $Timer.timeout
 			if ray_cast_3d.is_colliding():
@@ -34,7 +35,6 @@ func _input(event: InputEvent) -> void:
 			can_fire = true
 	else:
 		gpu_particles_3d.emitting = false
-	
 
 func _process(delta: float) -> void:
 	if ray_cast_3d.is_colliding():

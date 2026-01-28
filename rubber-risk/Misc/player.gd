@@ -10,6 +10,7 @@ var can_fire :bool = true
 var ads :bool = false
 var time_accumulator :float = 0.0
 @export var health :float = 120
+@export var player_resource :Reward
 var can_radiate :bool = false
 
 func _ready() -> void:

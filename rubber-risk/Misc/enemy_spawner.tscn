@@ -8,3 +8,5 @@ script = ExtResource("1_rnysl")
 [node name="Marker3D" type="Marker3D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]

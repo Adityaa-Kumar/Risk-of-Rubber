@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bm6tc2mfiplrg"
 path.s3tc="res://.godot/imported/TP_7_Wheels_Mat_metallicRoughness.png-0108cf4b1b97728aa136ea80a6b9e011.s3tc.ctex"
+path.etc2="res://.godot/imported/TP_7_Wheels_Mat_metallicRoughness.png-0108cf4b1b97728aa136ea80a6b9e011.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/turret/textures/TP_7_Wheels_Mat_metallicRoughness.png"
-dest_files=["res://.godot/imported/TP_7_Wheels_Mat_metallicRoughness.png-0108cf4b1b97728aa136ea80a6b9e011.s3tc.ctex"]
+dest_files=["res://.godot/imported/TP_7_Wheels_Mat_metallicRoughness.png-0108cf4b1b97728aa136ea80a6b9e011.s3tc.ctex", "res://.godot/imported/TP_7_Wheels_Mat_metallicRoughness.png-0108cf4b1b97728aa136ea80a6b9e011.etc2.ctex"]
 
 [params]
 

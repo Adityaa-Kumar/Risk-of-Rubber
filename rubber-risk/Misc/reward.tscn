@@ -16,8 +16,10 @@ metadata/_custom_type_script = "uid://cdfc36ny7dox"
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gyb2"]
 resource_name = "Atlas"
 shading_mode = 2
+disable_fog = true
 albedo_texture = ExtResource("1_6hqkl")
-emission = Color(0, 0.205923, 0.0788862, 1)
+emission_enabled = true
+emission_texture = ExtResource("1_6hqkl")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xeld2"]
 _surfaces = [{
@@ -253,6 +255,7 @@ autoplay = "default"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 cast_shadow = 0
+modulate = Color(1, 1, 0, 1)
 pixel_size = 0.005
 billboard = 1
 double_sided = false

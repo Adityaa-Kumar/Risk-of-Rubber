@@ -148,6 +148,7 @@ alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_ty2yd")
 animation = &"walk"
+frame_progress = 0.27332354
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66536, 0)

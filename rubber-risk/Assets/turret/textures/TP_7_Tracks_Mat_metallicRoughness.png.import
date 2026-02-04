@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cndruy15wgp4h"
 path.s3tc="res://.godot/imported/TP_7_Tracks_Mat_metallicRoughness.png-72052e7456a612dc877edf08cdb878a8.s3tc.ctex"
+path.etc2="res://.godot/imported/TP_7_Tracks_Mat_metallicRoughness.png-72052e7456a612dc877edf08cdb878a8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/turret/textures/TP_7_Tracks_Mat_metallicRoughness.png"
-dest_files=["res://.godot/imported/TP_7_Tracks_Mat_metallicRoughness.png-72052e7456a612dc877edf08cdb878a8.s3tc.ctex"]
+dest_files=["res://.godot/imported/TP_7_Tracks_Mat_metallicRoughness.png-72052e7456a612dc877edf08cdb878a8.s3tc.ctex", "res://.godot/imported/TP_7_Tracks_Mat_metallicRoughness.png-72052e7456a612dc877edf08cdb878a8.etc2.ctex"]
 
 [params]
 

@@ -1,12 +1,17 @@
-[gd_scene load_steps=75 format=4 uid="uid://d3xrbhic1oxex"]
+[gd_scene load_steps=77 format=4 uid="uid://d3xrbhic1oxex"]
 
 [ext_resource type="Script" uid="uid://ckosvxtse2mcf" path="res://Misc/player.gd" id="1_bqnbe"]
 [ext_resource type="Texture2D" uid="uid://day0du47k6yyr" path="res://Assets/textures/crosshairs_tilesheet_white@2.png" id="2_4ntmi"]
+[ext_resource type="Script" uid="uid://cdfc36ny7dox" path="res://Scripts/reward_res_script.gd" id="2_62cwq"]
 [ext_resource type="FontFile" uid="uid://bpqrym8b16w0s" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="3_8mh4l"]
 [ext_resource type="AudioStream" uid="uid://bt3blket0f71u" path="res://Assets/gun/762x54r Single MP3.mp3" id="3_btcbx"]
 [ext_resource type="Material" uid="uid://eu6lh0fr601x" path="res://addons/compass/resources/compassbar.material" id="4_8604q"]
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="5_62cwq"]
 [ext_resource type="Script" uid="uid://c4d8msey6vube" path="res://addons/compass/entities/compassbar.gd" id="6_ioerw"]
+
+[sub_resource type="Resource" id="Resource_ioerw"]
+script = ExtResource("2_62cwq")
+metadata/_custom_type_script = "uid://cdfc36ny7dox"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqnbe"]
 albedo_color = Color(1, 0, 0, 1)
@@ -1069,6 +1074,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_bqnbe")
+player_resource = SubResource("Resource_ioerw")
 
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, 1.2, 0)
@@ -1164,7 +1170,7 @@ target_position = Vector3(0, 0, -200)
 collision_mask = 7
 
 [node name="GUn" type="Node3D" parent="head"]
-transform = Transform3D(2.62087e-12, -7.23998e-07, 0.2, -0.2, -7.23998e-07, 2.60786e-23, 7.23998e-07, -0.2, -7.23998e-07, 0.317, -0.347, -1.156)
+transform = Transform3D(2.6208658e-12, -7.23998e-07, 0.2, -0.2, -7.23998e-07, 2.6078601e-23, 7.23998e-07, -0.2, -7.23998e-07, 0.317, -0.347, -1.156)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="head/GUn"]
 bones/0/name = "GLTF_created_0_rootJoint"
@@ -1431,6 +1437,7 @@ light_energy = 4.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="head"]
 stream = ExtResource("3_btcbx")
+unit_size = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)

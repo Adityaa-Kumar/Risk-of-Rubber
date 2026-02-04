@@ -1,6 +1,7 @@
-[gd_scene load_steps=62 format=4 uid="uid://vdvhhonoqx3n"]
+[gd_scene load_steps=65 format=4 uid="uid://vdvhhonoqx3n"]
 
 [ext_resource type="Script" uid="uid://dtf0861vohcmy" path="res://Vehicles/sedan_armoured.gd" id="1_3xyxk"]
+[ext_resource type="Script" uid="uid://cdfc36ny7dox" path="res://Scripts/reward_res_script.gd" id="2_oldol"]
 [ext_resource type="Texture2D" uid="uid://cqd8wciviidft" path="res://Assets/vehicles/sedan_armour_Zombie_Atlas.png" id="3_wc1h5"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_cbic7"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_v5u4y"]
@@ -15,6 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="11_oldol"]
 [ext_resource type="Texture2D" uid="uid://brge1h1om87ue" path="res://Assets/explosion/Explosions pack/explosion-1-d/spritsheet.png" id="12_wc1h5"]
 [ext_resource type="Script" uid="uid://c4d8msey6vube" path="res://addons/compass/entities/compassbar.gd" id="12_ymn5u"]
+[ext_resource type="AudioStream" uid="uid://c3ec3rt7h2a0f" path="res://Assets/sound/Vehicle_Car_Engine_2000_RPM_Rear_Exterior_Loop_Mono.mp3" id="17_ymn5u"]
+
+[sub_resource type="Resource" id="Resource_ymn5u"]
+script = ExtResource("2_oldol")
+Ammo = 0
+Metal = 0
+Parley_JEE = 0
+metadata/_custom_type_script = "uid://cdfc36ny7dox"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dh677"]
 resource_name = "Atlas"
@@ -197,11 +206,9 @@ positional_multiplier_y = 0.2
 positional_multiplier_z = 0.2
 metadata/_custom_type_script = "uid://cuffvge5ad4aa"
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_k3vml"]
-dof_blur_far_enabled = true
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ymn5u"]
 dof_blur_far_distance = 45.0
 dof_blur_far_transition = 6.0
-dof_blur_near_enabled = true
 dof_blur_near_distance = 0.05
 
 [sub_resource type="LabelSettings" id="LabelSettings_cbic7"]
@@ -506,6 +513,7 @@ reverse_power = -120.0
 acceleration = 6.0
 rev_acceleration = 8.0
 brake_power = 4.0
+player_resource = SubResource("Resource_ymn5u")
 
 [node name="wheelFrontLeft" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.984553, 0.43657, 1.76254)
@@ -592,8 +600,8 @@ noise = SubResource("Resource_s6jnd")
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-0.999812, -0.00707852, 0.0180425, 0.00301617, 0.862752, 0.505618, -0.0191452, 0.505578, -0.862569, -1.75643e-05, 14, -16.9282)
-attributes = SubResource("CameraAttributesPractical_k3vml")
+transform = Transform3D(-0.999951, -0.00950651, 0.00284987, -0.00680804, 0.866, 0.499998, -0.00722123, 0.499954, -0.866022, -1.75643e-05, 14, -16.9282)
+attributes = SubResource("CameraAttributesPractical_ymn5u")
 far = 400.0
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -682,6 +690,20 @@ skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_cy2t0")
 surface_material_override/2 = SubResource("StandardMaterial3D_t5dau")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="sedan_armour"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.831696, 0.84031, 2.80964)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 20.0
+spot_angle = 50.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="sedan_armour"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.819382, 0.84031, 2.80964)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 20.0
+spot_angle = 50.0
+
 [node name="turret" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("10_1o7c1")]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, -1.11022e-18, 0, 1.11022e-18, 0.005, 0.3817, 1.81173, -0.375435)
 player_node = NodePath("..")
@@ -714,5 +736,11 @@ billboard = 2
 no_depth_test = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_v5u4y")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06414, 1.94842)
+stream = ExtResource("17_ymn5u")
+unit_size = 15.0
+parameters/looping = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

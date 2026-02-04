@@ -9,6 +9,8 @@ var jump_speed = 6.0
 var can_fire :bool = true
 var ads :bool = false
 var time_accumulator :float = 0.0
+@export var health :float = 120
+@export var player_resource :Reward
 var can_radiate :bool = false
 
 func _ready() -> void:
@@ -73,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		can_fire = false
 	
 	radiation(delta)
-	if Global.player_health <= 0:
+	if health <= 0:
 		die()
 	
 
@@ -82,7 +84,7 @@ func die() -> void:
 	get_tree().change_scene_to_file("res://Map/menu.tscn")
 
 func radiation(delta) -> void:
-	$head/Camera3D/Control/ProgressBar.value = Global.player_health
+	$head/Camera3D/Control/ProgressBar.value = health
 
 func fire() -> void:
 	if $head/Camera3D/RayCast3D.is_colliding():
@@ -92,7 +94,7 @@ func fire() -> void:
 		
 
 func take_damage(damage :int):
-	Global.player_health -= damage
+	health -= damage
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	can_fire = true

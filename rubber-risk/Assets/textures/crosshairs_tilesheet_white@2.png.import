@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://day0du47k6yyr"
 path.s3tc="res://.godot/imported/crosshairs_tilesheet_white@2.png-27b0b02c5cb85ce77ca074c8dabdec86.s3tc.ctex"
+path.etc2="res://.godot/imported/crosshairs_tilesheet_white@2.png-27b0b02c5cb85ce77ca074c8dabdec86.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/textures/crosshairs_tilesheet_white@2.png"
-dest_files=["res://.godot/imported/crosshairs_tilesheet_white@2.png-27b0b02c5cb85ce77ca074c8dabdec86.s3tc.ctex"]
+dest_files=["res://.godot/imported/crosshairs_tilesheet_white@2.png-27b0b02c5cb85ce77ca074c8dabdec86.s3tc.ctex", "res://.godot/imported/crosshairs_tilesheet_white@2.png-27b0b02c5cb85ce77ca074c8dabdec86.etc2.ctex"]
 
 [params]
 

@@ -42,4 +42,4 @@ func _on_mm_btn_pressed() -> void:
 	elif Global.selected_car == Global.vehicle.TRUCK:
 		Global.truck_health = Global.player_health
 	Global.save_game()
-	SceneLoader.load_scene("res://Map/menu_debug.tscn")
+	SceneLoader.load_scene("res://Map/menu.tscn")

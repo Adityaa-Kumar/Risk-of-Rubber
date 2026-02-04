@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://blsw4kqsk7674"]
+[gd_scene format=4 uid="uid://blsw4kqsk7674"]
 
 [ext_resource type="Texture2D" uid="uid://ckobbk2pqsijx" path="res://Assets/textures/sand/sand_04_color_2k.png" id="1_tj141"]
 [ext_resource type="Script" uid="uid://bcq8q2kxp68i4" path="res://Scripts/menu.gd" id="1_wmv4b"]
@@ -30,7 +30,6 @@ ssr_max_steps = 128
 sdfgi_use_occlusion = true
 glow_enabled = true
 glow_bloom = 0.15
-glow_blend_mode = 1
 fog_enabled = true
 fog_light_color = Color(0.71133, 0.590967, 0.557525, 1)
 adjustment_enabled = true
@@ -847,26 +846,26 @@ stream_0/stream = ExtResource("12_4hb5y")
 stream_1/stream = ExtResource("13_h0ax1")
 stream_2/stream = ExtResource("14_q1c81")
 
-[node name="Menu" type="Node3D"]
+[node name="Menu" type="Node3D" unique_id=1860257248]
 script = ExtResource("1_wmv4b")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=784168283]
 environment = SubResource("Environment_tj141")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=470620074]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=341747043]
 transform = Transform3D(0.744869, 0.00172214, -0.667208, 0, 0.999997, 0.00258111, 0.667211, -0.00192259, 0.744867, 0, 0, 0)
 mesh = SubResource("PlaneMesh_qs2b8")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2104918536]
 transform = Transform3D(0.835308, -0.0512821, -0.547386, 0, 0.99564, -0.0932769, 0.549783, 0.0779149, 0.831666, 0.665945, 1.10034, 3.93996)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D" unique_id=1123377319]
 
-[node name="buttons" type="Control" parent="Camera3D/CanvasLayer"]
+[node name="buttons" type="Control" parent="Camera3D/CanvasLayer" unique_id=857958771]
 layout_mode = 3
 anchors_preset = 4
 anchor_top = 0.5
@@ -877,7 +876,7 @@ offset_bottom = 20.0
 grow_vertical = 2
 theme = SubResource("Theme_wmv4b")
 
-[node name="Button" type="Button" parent="Camera3D/CanvasLayer/buttons"]
+[node name="Button" type="Button" parent="Camera3D/CanvasLayer/buttons" unique_id=709668648]
 layout_mode = 0
 offset_left = 95.0
 offset_top = -205.0
@@ -885,7 +884,7 @@ offset_right = 547.0
 offset_bottom = -53.0
 text = "PLAY"
 
-[node name="Button2" type="Button" parent="Camera3D/CanvasLayer/buttons"]
+[node name="Button2" type="Button" parent="Camera3D/CanvasLayer/buttons" unique_id=1415939051]
 layout_mode = 0
 offset_left = 95.0
 offset_top = 40.0
@@ -893,7 +892,7 @@ offset_right = 547.0
 offset_bottom = 186.0
 text = "EXIT"
 
-[node name="Button3" type="Button" parent="Camera3D/CanvasLayer/buttons"]
+[node name="Button3" type="Button" parent="Camera3D/CanvasLayer/buttons" unique_id=2070407719]
 layout_mode = 0
 offset_left = 856.0
 offset_top = 278.0
@@ -902,124 +901,122 @@ offset_bottom = 321.0
 theme_override_font_sizes/font_size = 32
 text = "switch"
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=221548804]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54281, 0, 0.574348)
 mesh = SubResource("CylinderMesh_ru77h")
 
-[node name="car_selector" type="Node3D" parent="."]
+[node name="car_selector" type="Node3D" parent="." unique_id=1051794235]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54281, 0, 0.574348)
 
-[node name="pickup_armour" type="Node3D" parent="car_selector"]
+[node name="pickup_armour" type="Node3D" parent="car_selector" unique_id=380514117]
 
-[node name="Pickup_Armored" type="MeshInstance3D" parent="car_selector/pickup_armour"]
+[node name="Pickup_Armored" type="MeshInstance3D" parent="car_selector/pickup_armour" unique_id=390387364]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00671288, 1.10237, 0.0743506)
 mesh = SubResource("ArrayMesh_ryxq1")
 skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_5u2v3")
 
-[node name="BackWheels_R" type="MeshInstance3D" parent="car_selector/pickup_armour"]
+[node name="BackWheels_R" type="MeshInstance3D" parent="car_selector/pickup_armour" unique_id=86913188]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.939415, 0.432418, -1.22572)
 mesh = SubResource("ArrayMesh_q03xh")
 skeleton = NodePath("")
 
-[node name="FrontWheel_R" type="MeshInstance3D" parent="car_selector/pickup_armour"]
+[node name="FrontWheel_R" type="MeshInstance3D" parent="car_selector/pickup_armour" unique_id=687516198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.939977, 0.431566, 1.88637)
 mesh = SubResource("ArrayMesh_xqiuj")
 skeleton = NodePath("")
 
-[node name="FrontWheel_L" type="MeshInstance3D" parent="car_selector/pickup_armour"]
+[node name="FrontWheel_L" type="MeshInstance3D" parent="car_selector/pickup_armour" unique_id=1110036886]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.938686, 0.433373, 1.88824)
 mesh = SubResource("ArrayMesh_nekjw")
 skeleton = NodePath("")
 
-[node name="BackWheel_L" type="MeshInstance3D" parent="car_selector/pickup_armour"]
+[node name="BackWheel_L" type="MeshInstance3D" parent="car_selector/pickup_armour" unique_id=184610847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.939394, 0.432622, -1.22518)
 mesh = SubResource("ArrayMesh_gimt5")
 skeleton = NodePath("")
 
-[node name="sedan_armour" type="Node3D" parent="car_selector"]
+[node name="sedan_armour" type="Node3D" parent="car_selector" unique_id=1227972541]
 visible = false
 
-[node name="Sports_Armored" type="MeshInstance3D" parent="car_selector/sedan_armour"]
+[node name="Sports_Armored" type="MeshInstance3D" parent="car_selector/sedan_armour" unique_id=1667842144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00113777, 1.05752, 0.404426)
 mesh = SubResource("ArrayMesh_bmw60")
 skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_pmllv")
 surface_material_override/2 = SubResource("StandardMaterial3D_wcfm2")
 
-[node name="BackWheels_R" type="MeshInstance3D" parent="car_selector/sedan_armour"]
+[node name="BackWheels_R" type="MeshInstance3D" parent="car_selector/sedan_armour" unique_id=43884208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.984553, 0.43657, -1.58345)
 mesh = SubResource("ArrayMesh_th65b")
 skeleton = NodePath("")
 
-[node name="FrontWheel_R" type="MeshInstance3D" parent="car_selector/sedan_armour"]
+[node name="FrontWheel_R" type="MeshInstance3D" parent="car_selector/sedan_armour" unique_id=861449130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.984555, 0.43657, 1.76254)
 mesh = SubResource("ArrayMesh_8v1wl")
 skeleton = NodePath("")
 
-[node name="FrontWheel_L" type="MeshInstance3D" parent="car_selector/sedan_armour"]
+[node name="FrontWheel_L" type="MeshInstance3D" parent="car_selector/sedan_armour" unique_id=733444287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.984553, 0.43657, 1.76254)
 mesh = SubResource("ArrayMesh_b0y34")
 skeleton = NodePath("")
 
-[node name="BackWheels_L" type="MeshInstance3D" parent="car_selector/sedan_armour"]
+[node name="BackWheels_L" type="MeshInstance3D" parent="car_selector/sedan_armour" unique_id=1779118882]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.983414, 0.436124, -1.58285)
 mesh = SubResource("ArrayMesh_w2ko0")
 skeleton = NodePath("")
 
-[node name="truck_armour" type="Node3D" parent="car_selector"]
+[node name="truck_armour" type="Node3D" parent="car_selector" unique_id=1432142056]
 visible = false
 
-[node name="FrontWheel_R" type="MeshInstance3D" parent="car_selector/truck_armour"]
+[node name="FrontWheel_R" type="MeshInstance3D" parent="car_selector/truck_armour" unique_id=391600339]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.940242, 0.438884, 1.16185)
 mesh = SubResource("ArrayMesh_0qpgo")
 skeleton = NodePath("")
 
-[node name="BackWheels_R" type="MeshInstance3D" parent="car_selector/truck_armour"]
+[node name="BackWheels_R" type="MeshInstance3D" parent="car_selector/truck_armour" unique_id=379740200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.940388, 0.438669, -2.14411)
 mesh = SubResource("ArrayMesh_mo54y")
 skeleton = NodePath("")
 
-[node name="FrontWheel_L" type="MeshInstance3D" parent="car_selector/truck_armour"]
+[node name="FrontWheel_L" type="MeshInstance3D" parent="car_selector/truck_armour" unique_id=1219388470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.938494, 0.439056, 1.16208)
 mesh = SubResource("ArrayMesh_iexk8")
 skeleton = NodePath("")
 
-[node name="Truck_Armored" type="MeshInstance3D" parent="car_selector/truck_armour"]
+[node name="Truck_Armored" type="MeshInstance3D" parent="car_selector/truck_armour" unique_id=2033863907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0492436, 1.71976, -0.539036)
 mesh = SubResource("ArrayMesh_f8ctd")
 skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_3ld4v")
 surface_material_override/2 = SubResource("StandardMaterial3D_ag7ma")
 
-[node name="BackWheels_L" type="MeshInstance3D" parent="car_selector/truck_armour"]
+[node name="BackWheels_L" type="MeshInstance3D" parent="car_selector/truck_armour" unique_id=1862029002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.940094, 0.438907, -2.1461)
 mesh = SubResource("ArrayMesh_2lips")
 skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_wmv4b")
-}
-autoplay = "rotate"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=37242345]
+libraries/ = SubResource("AnimationLibrary_wmv4b")
+autoplay = &"rotate"
 speed_scale = 0.07
 
-[node name="Sketchfab_Scene" type="Node3D" parent="."]
+[node name="Sketchfab_Scene" type="Node3D" parent="." unique_id=230543258]
 
-[node name="stuff" type="Node3D" parent="Sketchfab_Scene"]
+[node name="stuff" type="Node3D" parent="Sketchfab_Scene" unique_id=87161982]
 transform = Transform3D(1.20765, 0, 0.48124, 0, 1.3, 0, -0.48124, 0, 1.20765, -0.63, 0, -2.275)
 
-[node name="Object_4" type="MeshInstance3D" parent="Sketchfab_Scene/stuff"]
+[node name="Object_4" type="MeshInstance3D" parent="Sketchfab_Scene/stuff" unique_id=1758496767]
 transform = Transform3D(0.942449, 0, 0.33435, 0, 1, 0, -0.33435, 0, 0.942449, 0, 0, 0)
 mesh = SubResource("ArrayMesh_wylbq")
 skeleton = NodePath("")
 
-[node name="Object_5" type="MeshInstance3D" parent="Sketchfab_Scene/stuff"]
+[node name="Object_5" type="MeshInstance3D" parent="Sketchfab_Scene/stuff" unique_id=77098164]
 transform = Transform3D(0.942449, 0, 0.33435, 0, 1, 0, -0.33435, 0, 0.942449, 0.529679, 0, -0.239084)
 mesh = SubResource("ArrayMesh_wylbq")
 skeleton = NodePath("")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sketchfab_Scene/stuff"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sketchfab_Scene/stuff" unique_id=608613472]
 transform = Transform3D(0.743256, 0, 0.19821, 0, 0.769231, 0, -0.19821, 0, 0.743256, 0, 0, 0)
 stream = SubResource("AudioStreamRandomizer_oxq15")
 unit_size = 2.8

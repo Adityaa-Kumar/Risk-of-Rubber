@@ -1,17 +1,17 @@
-[gd_scene load_steps=77 format=4 uid="uid://d3xrbhic1oxex"]
+[gd_scene format=4 uid="uid://d3xrbhic1oxex"]
 
 [ext_resource type="Script" uid="uid://ckosvxtse2mcf" path="res://Misc/player.gd" id="1_bqnbe"]
 [ext_resource type="Texture2D" uid="uid://day0du47k6yyr" path="res://Assets/textures/crosshairs_tilesheet_white@2.png" id="2_4ntmi"]
-[ext_resource type="Script" uid="uid://cdfc36ny7dox" path="res://Scripts/reward_res_script.gd" id="2_62cwq"]
+[ext_resource type="Script" uid="uid://dba3j5oor5fk" path="res://Scripts/reward_res_script.gd" id="2_62cwq"]
 [ext_resource type="FontFile" uid="uid://bpqrym8b16w0s" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="3_8mh4l"]
 [ext_resource type="AudioStream" uid="uid://bt3blket0f71u" path="res://Assets/gun/762x54r Single MP3.mp3" id="3_btcbx"]
 [ext_resource type="Material" uid="uid://eu6lh0fr601x" path="res://addons/compass/resources/compassbar.material" id="4_8604q"]
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="5_62cwq"]
 [ext_resource type="Script" uid="uid://c4d8msey6vube" path="res://addons/compass/entities/compassbar.gd" id="6_ioerw"]
+[ext_resource type="Shader" uid="uid://c6kmsgm357hkf" path="res://Assets/Shaders/cel_shader.gdshader" id="8_ioerw"]
 
 [sub_resource type="Resource" id="Resource_ioerw"]
 script = ExtResource("2_62cwq")
-metadata/_custom_type_script = "uid://cdfc36ny7dox"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqnbe"]
 albedo_color = Color(1, 0, 0, 1)
@@ -40,6 +40,38 @@ outline_size = 2
 outline_color = Color(0, 1, 0, 1)
 shadow_size = 3
 shadow_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dnjsq"]
+shader = ExtResource("8_ioerw")
+shader_parameter/first_stage = 0.5
+shader_parameter/first_smooth = 0.0
+shader_parameter/second_stage = 0.0
+shader_parameter/second_smooth = 0.0
+shader_parameter/rim_light = false
+shader_parameter/rim_thickness = 5.0
+shader_parameter/rim_intense = 1.0
+shader_parameter/rim_extra_thick = false
+shader_parameter/min_light = 0.0
+shader_parameter/mid_light = 0.0
+shader_parameter/max_light = 1.0
+shader_parameter/obj_light_add = 0.0
+shader_parameter/fake_light_depth = false
+shader_parameter/obj_height = 0.0
+shader_parameter/min_scale = 0.2
+shader_parameter/max_scale = 2.0
+shader_parameter/light_change_thresh = 0.0
+shader_parameter/light_fade = false
+shader_parameter/light_fade_end = 0.0
+shader_parameter/fake_spot_light = false
+shader_parameter/first_shrink_speed = 0.0
+shader_parameter/second_shrink_speed = 0.0
+shader_parameter/before_light_modulate = Color(0.7064978, 0, 0.34732267, 1)
+shader_parameter/source_light_height = 0.0
+shader_parameter/source_light_pos = Vector2(0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_343pn"]
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6qj0"]
 resource_name = "Material.003"
@@ -1072,21 +1104,21 @@ _data = {
 &"ready": SubResource("Animation_8mh4l")
 }
 
-[node name="Player" type="CharacterBody3D" groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1924632063 groups=["Player"]]
 script = ExtResource("1_bqnbe")
 player_resource = SubResource("Resource_ioerw")
 
-[node name="body" type="MeshInstance3D" parent="."]
+[node name="body" type="MeshInstance3D" parent="." unique_id=266399579]
 transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, 1.2, 0)
 mesh = SubResource("CapsuleMesh_oajqt")
 
-[node name="head" type="Node3D" parent="."]
+[node name="head" type="Node3D" parent="." unique_id=97117367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94358, 0)
 
-[node name="Camera3D" type="Camera3D" parent="head"]
+[node name="Camera3D" type="Camera3D" parent="head" unique_id=1172572283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3)
 
-[node name="Control" type="Control" parent="head/Camera3D"]
+[node name="Control" type="Control" parent="head/Camera3D" unique_id=728183866]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -1096,10 +1128,10 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="head/Camera3D/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="head/Camera3D/Control" unique_id=701175074]
 texture = SubResource("AtlasTexture_bd1bt")
 
-[node name="TextureRect" type="TextureRect" parent="head/Camera3D/Control"]
+[node name="TextureRect" type="TextureRect" parent="head/Camera3D/Control" unique_id=1597508314]
 layout_mode = 0
 offset_left = -2696.0
 offset_top = -1607.0
@@ -1107,7 +1139,7 @@ offset_right = 4011.0
 offset_bottom = 3143.0
 texture = SubResource("CanvasTexture_bd1bt")
 
-[node name="Label_death" type="Label" parent="head/Camera3D/Control"]
+[node name="Label_death" type="Label" parent="head/Camera3D/Control" unique_id=1326456424]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = -469.0
@@ -1117,7 +1149,7 @@ offset_bottom = 35.0
 text = "!FINAL STAND!"
 label_settings = SubResource("LabelSettings_6lwl8")
 
-[node name="ProgressBar" type="ProgressBar" parent="head/Camera3D/Control"]
+[node name="ProgressBar" type="ProgressBar" parent="head/Camera3D/Control" unique_id=1850290479]
 layout_mode = 0
 offset_left = -515.0
 offset_top = 316.0
@@ -1127,7 +1159,7 @@ theme_override_fonts/font = ExtResource("3_8mh4l")
 step = 1.0
 value = 100.0
 
-[node name="Label_health" type="Label" parent="head/Camera3D/Control"]
+[node name="Label_health" type="Label" parent="head/Camera3D/Control" unique_id=1249909663]
 layout_mode = 0
 offset_left = -628.0
 offset_top = 322.0
@@ -1136,7 +1168,7 @@ offset_bottom = 345.0
 text = "Health: "
 label_settings = SubResource("LabelSettings_8mh4l")
 
-[node name="CenterContainer" type="CenterContainer" parent="head/Camera3D/Control"]
+[node name="CenterContainer" type="CenterContainer" parent="head/Camera3D/Control" unique_id=1837374008]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1148,13 +1180,13 @@ offset_bottom = -319.0
 grow_horizontal = 2
 scale = Vector2(3, 3)
 
-[node name="Pointer" type="Polygon2D" parent="head/Camera3D/Control/CenterContainer"]
+[node name="Pointer" type="Polygon2D" parent="head/Camera3D/Control/CenterContainer" unique_id=1895332418]
 modulate = Color(0.0784314, 0.0784314, 0.0784314, 1)
 position = Vector2(48.5, -3)
 color = Color(0.14902, 0.14902, 0.14902, 1)
 polygon = PackedVector2Array(0, 0, -3, -4, 3, -4)
 
-[node name="CompassBar" type="TextureRect" parent="head/Camera3D/Control/CenterContainer" node_paths=PackedStringArray("parent")]
+[node name="CompassBar" type="TextureRect" parent="head/Camera3D/Control/CenterContainer" unique_id=202192697 node_paths=PackedStringArray("parent")]
 texture_filter = 1
 texture_repeat = 2
 material = ExtResource("4_8604q")
@@ -1164,15 +1196,21 @@ stretch_mode = 3
 script = ExtResource("6_ioerw")
 parent = NodePath("../../../../..")
 
-[node name="RayCast3D" type="RayCast3D" parent="head/Camera3D"]
+[node name="RayCast3D" type="RayCast3D" parent="head/Camera3D" unique_id=143603984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.474396)
 target_position = Vector3(0, 0, -200)
 collision_mask = 7
 
-[node name="GUn" type="Node3D" parent="head"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="head/Camera3D" unique_id=702336103]
+material_override = SubResource("ShaderMaterial_dnjsq")
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_343pn")
+
+[node name="GUn" type="Node3D" parent="head" unique_id=205100965]
 transform = Transform3D(2.6208658e-12, -7.23998e-07, 0.2, -0.2, -7.23998e-07, 2.6078601e-23, 7.23998e-07, -0.2, -7.23998e-07, 0.317, -0.347, -1.156)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="head/GUn"]
+[node name="Skeleton3D" type="Skeleton3D" parent="head/GUn" unique_id=1629362489]
 bones/0/name = "GLTF_created_0_rootJoint"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -1328,127 +1366,125 @@ bones/21/position = Vector3(0.187713, -2.02222, -0.171641)
 bones/21/rotation = Quaternion(-0.676144, 0.20695, 0.20695, 0.676145)
 bones/21/scale = Vector3(1, 1, 1)
 
-[node name="Object_7" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_7" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=1576451693]
 mesh = SubResource("ArrayMesh_pan5s")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_8" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_8" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=429738598]
 mesh = SubResource("ArrayMesh_xy803")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_9" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_9" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=1122397824]
 mesh = SubResource("ArrayMesh_e882v")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_10" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_10" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=1861688830]
 mesh = SubResource("ArrayMesh_r80pe")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_11" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_11" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=303324925]
 mesh = SubResource("ArrayMesh_114um")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_12" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_12" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=1085470740]
 mesh = SubResource("ArrayMesh_2nwb2")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_13" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_13" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=1463418121]
 mesh = SubResource("ArrayMesh_yaapm")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_14" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_14" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=1895763114]
 mesh = SubResource("ArrayMesh_2wxah")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_15" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_15" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=1084919939]
 mesh = SubResource("ArrayMesh_72kxi")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_16" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_16" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=781804532]
 mesh = SubResource("ArrayMesh_ksvvm")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_17" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_17" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=605571439]
 mesh = SubResource("ArrayMesh_8nv5o")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_18" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_18" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=894244760]
 mesh = SubResource("ArrayMesh_knpsg")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_19" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_19" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=996075024]
 mesh = SubResource("ArrayMesh_e35ym")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_20" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_20" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=303831118]
 mesh = SubResource("ArrayMesh_bguex")
 skin = SubResource("Skin_a7vks")
 
-[node name="Object_21" type="MeshInstance3D" parent="head/GUn/Skeleton3D"]
+[node name="Object_21" type="MeshInstance3D" parent="head/GUn/Skeleton3D" unique_id=972562526]
 mesh = SubResource("ArrayMesh_oomgv")
 skin = SubResource("Skin_a7vks")
 
-[node name="Cylinder_001_26" type="Node3D" parent="head/GUn"]
+[node name="Cylinder_001_26" type="Node3D" parent="head/GUn" unique_id=321148739]
 transform = Transform3D(-0.250848, -8.45796e-08, 0, 8.45796e-08, -0.250848, 0, 0, 0, 0.250848, -1.34506, -3.74549, 0)
 
-[node name="Object_44" type="MeshInstance3D" parent="head/GUn/Cylinder_001_26"]
+[node name="Object_44" type="MeshInstance3D" parent="head/GUn/Cylinder_001_26" unique_id=52907782]
 mesh = SubResource("ArrayMesh_utr0f")
 skeleton = NodePath("")
 
-[node name="Object_45" type="MeshInstance3D" parent="head/GUn/Cylinder_001_26"]
+[node name="Object_45" type="MeshInstance3D" parent="head/GUn/Cylinder_001_26" unique_id=951744040]
 mesh = SubResource("ArrayMesh_pmmns")
 skeleton = NodePath("")
 
-[node name="Object_46" type="MeshInstance3D" parent="head/GUn/Cylinder_001_26"]
+[node name="Object_46" type="MeshInstance3D" parent="head/GUn/Cylinder_001_26" unique_id=184238046]
 mesh = SubResource("ArrayMesh_3yj0o")
 skeleton = NodePath("")
 
-[node name="Object_47" type="MeshInstance3D" parent="head/GUn/Cylinder_001_26"]
+[node name="Object_47" type="MeshInstance3D" parent="head/GUn/Cylinder_001_26" unique_id=1703888921]
 mesh = SubResource("ArrayMesh_7gux7")
 skeleton = NodePath("")
 
-[node name="Object_48" type="MeshInstance3D" parent="head/GUn/Cylinder_001_26"]
+[node name="Object_48" type="MeshInstance3D" parent="head/GUn/Cylinder_001_26" unique_id=518769701]
 mesh = SubResource("ArrayMesh_63781")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="head/GUn"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="head/GUn" unique_id=738115041]
 transform = Transform3D(1, 0, 1.27055e-21, 0, 1, 0, 0, 0, 1, -0.416121, 5.13214, 2.38419e-07)
 visible = false
 cast_shadow = 0
 lod_bias = 0.001
 mesh = SubResource("SphereMesh_btcbx")
 
-[node name="Cube" type="Node3D" parent="head"]
+[node name="Cube" type="Node3D" parent="head" unique_id=2067264912]
 transform = Transform3D(0.340971, 0.00428747, 0.0987192, -0.0978398, 0.0642868, 0.335141, -0.0138294, -0.349104, 0.0629279, 0, 0.12447, 0)
 
-[node name="Cube_0" type="MeshInstance3D" parent="head/Cube"]
+[node name="Cube_0" type="MeshInstance3D" parent="head/Cube" unique_id=184290528]
 mesh = SubResource("ArrayMesh_rc1m8")
 skeleton = NodePath("")
 
-[node name="Cube_1" type="MeshInstance3D" parent="head/Cube"]
+[node name="Cube_1" type="MeshInstance3D" parent="head/Cube" unique_id=791712137]
 mesh = SubResource("ArrayMesh_24oil")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="head"]
+[node name="OmniLight3D" type="OmniLight3D" parent="head" unique_id=1027754168]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.323241, -0.233523, -2.20872)
 visible = false
 light_color = Color(0.760784, 0.513726, 0.321569, 1)
 light_energy = 4.0
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="head"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="head" unique_id=802716293]
 stream = ExtResource("3_btcbx")
 unit_size = 0.5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1827165467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 shape = SubResource("CapsuleShape3D_bqnbe")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_btcbx")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1587023701]
+libraries/ = SubResource("AnimationLibrary_btcbx")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=139831552]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

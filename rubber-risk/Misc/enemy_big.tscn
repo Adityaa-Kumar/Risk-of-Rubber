@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://bijfe3mwpmebh"]
+[gd_scene format=3 uid="uid://bijfe3mwpmebh"]
 
-[ext_resource type="Script" path="res://Misc/enemy_big.gd" id="1_ofs18"]
+[ext_resource type="Script" uid="uid://cvw7ii8ibtgyi" path="res://Misc/enemy_big.gd" id="1_ofs18"]
 [ext_resource type="Texture2D" uid="uid://dgf0m600ksqyr" path="res://Assets/enemies/spritesheet_1.png" id="3_ybgjo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofs18"]
@@ -135,12 +135,12 @@ height = 5.16512
 [sub_resource type="SphereShape3D" id="SphereShape3D_ybgjo"]
 radius = 3.0
 
-[node name="enemy_big" type="CharacterBody3D" groups=["Enemy"]]
+[node name="enemy_big" type="CharacterBody3D" unique_id=478824279 groups=["Enemy"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_ofs18")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=633177485]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71244, 0)
 pixel_size = 0.04
 billboard = 1
@@ -150,14 +150,14 @@ sprite_frames = SubResource("SpriteFrames_ty2yd")
 animation = &"walk"
 frame_progress = 0.27332354
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1008998941]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66536, 0)
 shape = SubResource("CapsuleShape3D_3ec02")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=971344003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=642082168]
 shape = SubResource("SphereShape3D_ybgjo")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

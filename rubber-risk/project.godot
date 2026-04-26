@@ -30,6 +30,10 @@ SceneLoader="*uid://cbwmrnp0af35y"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[dotnet]
+
+project/assembly_name="Risk of Rubber"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/compass/plugin.cfg", "res://addons/maaacks_scene_loader/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
